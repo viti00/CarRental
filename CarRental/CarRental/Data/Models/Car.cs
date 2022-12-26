@@ -35,12 +35,10 @@ namespace CarRental.Data.Models
             ErrorMessage ="Цената за ден трябва да бъде в интервала 1 лев и 500 лева!")]
         public double PricePerDay { get; set; }
 
-        [Required(ErrorMessage = "Полето е задължително!")]
-        [StringLength
-            (CarConstants.CityMaxLength,
-            MinimumLength =CarConstants.CityMinLength,
-            ErrorMessage ="Името на града трябва да бъде с дължина между 2 и 20 символа!")]
-        public string City { get; set; }
+        [ForeignKey(nameof(City))]
+        public int CityId { get; set; }
+
+        public virtual City? City { get; set; }
 
         [Required(ErrorMessage = "Полето е задължително!")]
         public int Year { get; set; }

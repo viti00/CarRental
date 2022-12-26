@@ -18,5 +18,6 @@ namespace CarRental.Data
         public DbSet<ReservedCar> ReservedCars { get; set; }
         public DbSet<Make> Makes { get; set; }
         public DbSet<Model> Models { get; set; }
+        public DbSet<City> Cities { get; set; }
     }
 }

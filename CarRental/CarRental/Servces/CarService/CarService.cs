@@ -13,6 +13,9 @@ namespace CarRental.Servces.CarService
             this.context = context;
         }
 
+        public Model GetModelById(int modelId)
+            => context.Models.FirstOrDefault(x => x.Id == modelId);
+
         public List<Model> GetModelsForGivenMake(int makeId)
         {
             var models = context.Models.Where(x => x.MakeId == makeId).ToList();
@@ -37,6 +40,10 @@ namespace CarRental.Servces.CarService
             if (!context.Transmissions.Any(x => x.Id == car.TransmissionId))
             {
                 ms.AddModelError("Transmission", "Полето е задължително!");
+            }
+            if (!context.Cities.Any(x => x.Id == car.CityId))
+            {
+                ms.AddModelError("City", "Полето е задължително!");
             }
         }
     }

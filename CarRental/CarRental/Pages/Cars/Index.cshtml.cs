@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CarRental.Data.Models;
+using CarRental.ViewModels;
 
 namespace CarRental.Pages.Cars
 {
@@ -15,7 +16,7 @@ namespace CarRental.Pages.Cars
 
         public IList<Car> Car { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(CarsSearchViewModel searchTerm)
         {
             if (_context.Cars != null)
             {

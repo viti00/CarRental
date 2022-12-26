@@ -1,0 +1,72 @@
+﻿body::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;
+}
+
+.section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    max-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.color-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: grey;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.wrapper {
+    max-height: auto;
+    margin: 80px auto;
+    padding: 30px 20px 20px 20px;
+    background-color: darkorange;
+    border-radius: 15px;
+    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #d3d3d3;
+    position: relative;
+}
+
+.parent {
+    text-align: center;
+}
+
+.child {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 170px;
+}
+
+.align-right{
+    text-align: right;
+}
+.display-block{
+    display:block;
+}
+
+.custom-btn {
+    position: relative;
+    width: auto;
+    height: 60px;
+    border-radius: 15px;
+    background-color: yellow;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+
+.custom-btn:hover {
+    background-color: red;
+    transform: scale(1.1);
+    transition: all linear 200ms;
+    z-index: 1;
+    box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+    cursor: pointer;
+}

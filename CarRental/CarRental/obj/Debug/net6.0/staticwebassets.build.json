@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hWG8MNhWtYfW9xAVZwKSqmonVzRFmtExcnLIoSB6HXM=",
+  "Hash": "xt1IVG5LZ44yODBkl0zq2cAJwwQ0C5/BZ64+4abrjhM=",
   "Source": "CarRental",
   "BasePath": "_content/CarRental",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CarRental.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\SearchPage.css",
+      "SourceId": "CarRental",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\",
+      "BasePath": "_content/CarRental",
+      "RelativePath": "css/SearchPage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\SearchPage.css"
     },
     {
       "Identity": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\site.css",

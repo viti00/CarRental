@@ -3,8 +3,103 @@
 @{
     ViewData["Title"] = "Home page";
 }
+@section Styles{
+    <link rel="stylesheet" href="~/css/SearchPage.css" />
+}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="section">
+    <div class="wrapper col-sm-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+        <form method="get" asp-controller="Cars" asp-action="Index">
+        <div class="form-group parent">
+                <label asp-for="SearchTerm.SearchByMake" class="control-label">Марка:</label>
+                <select asp-for="SearchTerm.SearchByMake" id="make-select" class ="form-control" asp-items="ViewBag.MakeId"><option value=0></option></select>
+                <span asp-validation-for="SearchTerm.SearchByMake" class="text-danger"></span>
+        </div>
+        <div class="form-group parent">
+                <label asp-for="SearchTerm.SearchByModel" class="control-label">Модел:</label>
+                <select asp-for="SearchTerm.SearchByModel" id="model-select" class ="form-control" disabled><option value=0></option></select>
+                <span asp-validation-for="SearchTerm.SearchByModel" class="text-danger"></span>
+        </div>
+        <div class="form-group parent">
+                <label asp-for="SearchTerm.SearchByEngine" class="control-label">Тип двигател:</label>
+                <select asp-for="SearchTerm.SearchByEngine" class ="form-control" asp-items="ViewBag.EngineId"><option value=0></option></select>
+                <span asp-validation-for="SearchTerm.SearchByEngine" class="text-danger"></span>
+        </div>
+        <div class="form-group parent">
+                <label asp-for="SearchTerm.SearchByCategory" class="control-label">Категория:</label>
+                <select asp-for="SearchTerm.SearchByCategory" class ="form-control" asp-items="ViewBag.CategoryId"><option value=0></option></select>
+                <span asp-validation-for="SearchTerm.SearchByCategory" class="text-danger"></span>
+        </div>
+        <div class="form-group parent">
+                <label asp-for="SearchTerm.SearchByTransmission" class="control-label">Скоростна кутия:</label>
+                <select asp-for="SearchTerm.SearchByTransmission" class ="form-control" asp-items="ViewBag.TransmissionId"><option value=0></option></select>
+                <span asp-validation-for="SearchTerm.SearchByTransmission" class="text-danger"></span>
+        </div>
+         <div class="form-group parent">
+                <label asp-for="SearchTerm.SearchByCity" class="control-label">Място на вземане:</label>
+                <select asp-for="SearchTerm.SearchByCity" class ="form-control" asp-items="ViewBag.CityId"><option value=0></option></select>
+                <span asp-validation-for="SearchTerm.SearchByCity" class="text-danger"></span>
+        </div>
+        <div class="form-group parent">
+                <label class="control-label display-block">Свободна</label>
+                <div class="child">
+                    <label asp-for="SearchTerm.DateToTake" class="control-label">от:</label>
+                    <input asp-for="SearchTerm.DateToTake" class ="form-control align-right"/>
+                    <span asp-validation-for="SearchTerm.DateToTake" class="text-danger"></span>
+                </div>
+                <div class="child">
+                    <label asp-for="SearchTerm.DateToReturn" class="control-label">до:</label>
+                    <input asp-for="SearchTerm.DateToReturn" class ="form-control align-right" />
+                    <span asp-validation-for="SearchTerm.DateToReturn" class="text-danger"></span>
+                </div>
+        </div>
+        <div class="form-group parent">
+                <label class="control-label display-block">Дневна цена</label>
+                <div class="child">
+                    <label asp-for="SearchTerm.PricePerDayMin" class="control-label">от:</label>
+                    <input asp-for="SearchTerm.PricePerDayMin" class ="form-control align-right"/>
+                    <span asp-validation-for="SearchTerm.PricePerDayMin" class="text-danger"></span>
+                </div>
+                <div class="child">
+                    <label asp-for="SearchTerm.PricePerDayMax" class="control-label">до:</label>
+                    <input asp-for="SearchTerm.PricePerDayMax" class ="form-control align-right" />
+                    <span asp-validation-for="SearchTerm.PricePerDayMax" class="text-danger"></span>
+                </div>
+        </div>
+        <div class="form-group parent">
+            <label class="control-label display-block">Разход на гориво на 100км</label>
+            <div class="child">
+                <label asp-for="SearchTerm.FuelConsumptionMin" class="control-label">от:</label>
+                <input asp-for="SearchTerm.FuelConsumptionMin" class ="form-control align-right" />
+                <span asp-validation-for="SearchTerm.FuelConsumptionMin" class="text-danger"></span>
+            </div>
+            <div class="child">
+                <label asp-for="SearchTerm.FuelConsumptionMax" class="control-label">до:</label>
+                <input asp-for="SearchTerm.FuelConsumptionMax" class ="form-control align-right" />
+                <span asp-validation-for="SearchTerm.FuelConsumptionMax" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group parent">
+            <label asp-for="SearchTerm.HorsePowerMin" class="control-label display-block">Конски сили</label>
+            <div class="child">
+                <label asp-for="SearchTerm.HorsePowerMin" class="control-label">от:</label>
+                <input asp-for="SearchTerm.HorsePowerMin" class ="form-control align-right" />
+                <span asp-validation-for="SearchTerm.HorsePowerMin" class="text-danger"></span>
+            </div>
+            <div class="child">
+                <label asp-for="SearchTerm.HorsePowerMax" class="control-label">до:</label>
+                <input asp-for="SearchTerm.HorsePowerMax" class ="form-control align-right"/>
+                <span asp-validation-for="SearchTerm.HorsePowerMax" class="text-danger"></span>
+            </div>
+                
+        </div>
+        <button type="submit" class="btn custom-btn">Към подходящите коли</button>
+    </form>
+    </div>
 </div>
+@section Scripts {
+     <script src="/js/FillModels.js"></script> 
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

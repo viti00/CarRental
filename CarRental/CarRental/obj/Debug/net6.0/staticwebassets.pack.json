@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CarRental.bundle.scp.css"
     },
     {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\SearchPage.css",
+      "PackagePath": "staticwebassets\\css\\SearchPage.css"
+    },
+    {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

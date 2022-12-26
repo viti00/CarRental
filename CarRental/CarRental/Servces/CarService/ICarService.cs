@@ -8,5 +8,7 @@ namespace CarRental.Servces.CarService
         public List<Model> GetModelsForGivenMake(int makeId);
 
         public void ValidateCar(Car car, ModelStateDictionary ms);
+
+        public Model GetModelById(int modelId);
     }
 }

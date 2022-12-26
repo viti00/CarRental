@@ -12,6 +12,7 @@ namespace CarRental.Infrastructure
             SeedTransmissions(context);
             SeedMakes(context);
             SeedModels(context);
+            SeedCities(context);
         }
 
         private static void SeedCategory(CarRentalDbContext context)
@@ -209,6 +210,46 @@ namespace CarRental.Infrastructure
             if (!context.Models.Any())
             {
                 context.Models.AddRange(models);
+                context.SaveChanges();
+            }
+        }
+
+        private static void SeedCities(CarRentalDbContext context)
+        {
+            var cities = new List<City>
+            {
+                new City { Name = "Благоевград"},
+                new City { Name = "Бургас"},
+                new City { Name = "Варна"},
+                new City { Name = "Велико Търново"},
+                new City { Name = "Видин"},
+                new City { Name = "Враца"},
+                new City { Name = "Габрово"},
+                new City { Name = "Добрич"},
+                new City { Name = "Кърджали"},
+                new City { Name = "Кюстендил"},
+                new City { Name = "Ловеч"},
+                new City { Name = "Монтана"},
+                new City { Name = "Пазарджик"},
+                new City { Name = "Перник"},
+                new City { Name = "Плевен"},
+                new City { Name = "Пловдив"},
+                new City { Name = "Разград"},
+                new City { Name = "Русе"},
+                new City { Name = "Силистра"},
+                new City { Name = "Сливен"},
+                new City { Name = "Смолян"},
+                new City { Name = "София"},
+                new City { Name = "Стара Загора"},
+                new City { Name = "Търговище"},
+                new City { Name = "Хасково"},
+                new City { Name = "Шумен"},
+                new City { Name = "Ямбол"}
+            };
+
+            if (!context.Cities.Any())
+            {
+                context.Cities.AddRange(cities);
                 context.SaveChanges();
             }
         }

@@ -28,6 +28,7 @@ namespace CarRental.Pages.Cars
             ViewData["EngineId"] = new SelectList(_context.Engines, "Id", "Type");
             ViewData["MakeId"] = new SelectList(_context.Makes, "Id", "Name");
             ViewData["TransmissionId"] = new SelectList(_context.Transmissions, "Id", "Type");
+            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Name");
             return Page();
         }
 
@@ -44,8 +45,10 @@ namespace CarRental.Pages.Cars
                 ViewData["EngineId"] = new SelectList(_context.Engines, "Id", "Type");
                 ViewData["MakeId"] = new SelectList(_context.Makes, "Id", "Name");
                 ViewData["TransmissionId"] = new SelectList(_context.Transmissions, "Id", "Type");
+                ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Name");
                 return Page();
             }
+            Car.Model = carService.GetModelById(int.Parse(Car.Model)).Name;
 
             _context.Cars.Add(Car);
             await _context.SaveChangesAsync();

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yqjEOxHre0dXjtoNdBv43zl6h6J9hHss0m36QObJ3p/5LQ9s/TpQN02kaGRWDvjgNHQqHrRMcW5ddsewHxnm9Q==",
+  "dgSpecHash": "FLYU2Sz7Sc1DYqWuUVNTOd++MrWCHEq1TSRaI0kEJ7Qf8kdeWzkqI/ysMC4+N5F2t8TDxtqBHhfcgjXfNfoGWw==",
   "success": true,
   "projectFilePath": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\CarRental.csproj",
   "expectedPackageFiles": [
@@ -66,6 +66,7 @@
     "C:\\Users\\CharovPC\\.nuget\\packages\\microsoft.net.stringtools\\17.3.2\\microsoft.net.stringtools.17.3.2.nupkg.sha512",
     "C:\\Users\\CharovPC\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.1\\microsoft.netcore.platforms.1.1.1.nupkg.sha512",
     "C:\\Users\\CharovPC\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
+    "C:\\Users\\CharovPC\\.nuget\\packages\\microsoft.odata.edm\\7.13.0\\microsoft.odata.edm.7.13.0.nupkg.sha512",
     "C:\\Users\\CharovPC\\.nuget\\packages\\microsoft.visualstudio.debugger.contracts\\17.2.0\\microsoft.visualstudio.debugger.contracts.17.2.0.nupkg.sha512",
     "C:\\Users\\CharovPC\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\6.0.11\\microsoft.visualstudio.web.codegeneration.6.0.11.nupkg.sha512",
     "C:\\Users\\CharovPC\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\6.0.11\\microsoft.visualstudio.web.codegeneration.core.6.0.11.nupkg.sha512",
