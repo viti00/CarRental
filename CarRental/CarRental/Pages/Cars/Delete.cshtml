@@ -16,7 +16,7 @@
             @Html.DisplayNameFor(model => model.Car.Make)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.Make.Id)
+            @Html.DisplayFor(model => model.Car.Make.Name)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Car.Model)
@@ -43,22 +43,28 @@
             @Html.DisplayFor(model => model.Car.PricePerDay)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Car.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.City)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Car.Engine)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.Engine.Id)
+            @Html.DisplayFor(model => model.Car.Engine.Type)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Car.Category)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.Category.Id)
+            @Html.DisplayFor(model => model.Car.Category.Name)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Car.Transmission)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.Transmission.Id)
+            @Html.DisplayFor(model => model.Car.Transmission.Type)
         </dd>
     </dl>
     

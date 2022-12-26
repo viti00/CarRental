@@ -36,10 +36,10 @@ namespace CarRental.Pages.Cars
                 return NotFound();
             }
             Car = car;
-           ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id");
-           ViewData["EngineId"] = new SelectList(_context.Engines, "Id", "Id");
-           ViewData["MakeId"] = new SelectList(_context.Makes, "Id", "Id");
-           ViewData["TransmissionId"] = new SelectList(_context.Transmissions, "Id", "Id");
+           ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
+           ViewData["EngineId"] = new SelectList(_context.Engines, "Id", "Type");
+           ViewData["MakeId"] = new SelectList(_context.Makes, "Id", "Name");
+           ViewData["TransmissionId"] = new SelectList(_context.Transmissions, "Id", "Type");
             return Page();
         }
 

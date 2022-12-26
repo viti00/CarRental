@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using static CarRental.Data.ModelsConstnants;
 
 namespace CarRental.Data.Models
 {
@@ -6,6 +8,8 @@ namespace CarRental.Data.Models
     {
         public int Id { get; set; }
 
+        [Required]
+        [StringLength(ModelConstants.ModelNameMaxLegnth, MinimumLength = ModelConstants.ModelNameMinLegnth)]
         public string Name { get; set; }
 
         [ForeignKey(nameof(Make))]

@@ -29,6 +29,9 @@
                 @Html.DisplayNameFor(model => model.Car[0].PricePerDay)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Car[0].City)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Car[0].Engine)
             </th>
             <th>
@@ -44,7 +47,7 @@
 @foreach (var item in Model.Car) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Make.Id)
+                @Html.DisplayFor(modelItem => item.Make.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Model)
@@ -59,13 +62,16 @@
                 @Html.DisplayFor(modelItem => item.PricePerDay)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Engine.Id)
+                @Html.DisplayFor(modelItem => item.City)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Category.Id)
+                @Html.DisplayFor(modelItem => item.Engine.Type)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Transmission.Id)
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transmission.Type)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

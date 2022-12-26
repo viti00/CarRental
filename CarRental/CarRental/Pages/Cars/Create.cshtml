@@ -15,15 +15,19 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Car.MakeId" class="control-label">Марка:</label>
-                <select asp-for="Car.MakeId" class ="form-control form-select-sm form-select" asp-items="ViewBag.MakeId"><option value=""></option></select>
+                <select asp-for="Car.MakeId" id="make-select" class ="form-control" asp-items="ViewBag.MakeId"><option value=0></option></select>
+                <span asp-validation-for="Car.MakeId" class="text-danger"></span>
+                <div class="text-danger">
+                    @Html.ValidationMessage("Make")
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="Car.Model" class="control-label">Модел:</label>
-                <input asp-for="Car.Model" class="form-control" />
+                <select asp-for="Car.Model" id="model-select" class="form-control" disabled></select>
                 <span asp-validation-for="Car.Model" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Car.HorsePower" class="control-label">Мощност:</label>
+                <label asp-for="Car.HorsePower" class="control-label">Конски сили:</label>
                 <input asp-for="Car.HorsePower" class="form-control" />
                 <span asp-validation-for="Car.HorsePower" class="text-danger"></span>
             </div>
@@ -38,19 +42,41 @@
                 <span asp-validation-for="Car.PricePerDay" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Car.City" class="control-label">Град:</label>
+                <input asp-for="Car.City" class="form-control" />
+                <span asp-validation-for="Car.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Car.Year" class="control-label">Година на производство:</label>
+                <input asp-for="Car.Year" class="form-control" />
+                <span asp-validation-for="Car.Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Car.EngineId" class="control-label">Тип двигател:</label>
-                <select asp-for="Car.EngineId" class ="form-control form-select-sm form-select" asp-items="ViewBag.EngineId"><option value=""></option></select>
+                <select asp-for="Car.EngineId" class ="form-control" asp-items="ViewBag.EngineId"><option value=0></option></select>
+                <span asp-validation-for="Car.EngineId" class="text-danger"></span>
+                <div class="text-danger">
+                    @Html.ValidationMessage("Engine")
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="Car.CategoryId" class="control-label">Категория:</label>
-                <select asp-for="Car.CategoryId" class ="form-control form-select-sm form-select" asp-items="ViewBag.CategoryId"><option value=""></option></select>
+                <select asp-for="Car.CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"><option value=0></option></select>
+                <span asp-validation-for="Car.CategoryId" class="text-danger"></span>
+                <div class="text-danger">
+                    @Html.ValidationMessage("Category")
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="Car.TransmissionId" class="control-label">Скоростна кутия:</label>
-                <select asp-for="Car.TransmissionId" class ="form-control form-select-sm form-select" asp-items="ViewBag.TransmissionId"><option value=""></option></select>
+                <select asp-for="Car.TransmissionId" class ="form-control" asp-items="ViewBag.TransmissionId"><option value=0></option></select>
+                <span asp-validation-for="Car.TransmissionId" class="text-danger"></span>
+                <div class="text-danger">
+                    @Html.ValidationMessage("Transmission")
+                </div>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create1234" class="btn btn-primary" />
+                <input type="submit" value="Добави" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -61,5 +87,6 @@
 </div>
 
 @section Scripts {
+    <script src="/js/FillModels.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

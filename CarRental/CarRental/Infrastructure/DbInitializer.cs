@@ -6,7 +6,7 @@ namespace CarRental.Infrastructure
     public static class DbInitializer
     {
         public static void Initialize(CarRentalDbContext context)
-        {
+        { 
             SeedCategory(context);
             SeedEngines(context);
             SeedTransmissions(context);
@@ -206,9 +206,11 @@ namespace CarRental.Infrastructure
                 new Model{Name="Silvia", MakeId = nissanId},
                 new Model{Name="Skyline", MakeId = nissanId},
             };
-
-            context.Models.AddRange(models);
-            context.SaveChanges();
+            if (!context.Models.Any())
+            {
+                context.Models.AddRange(models);
+                context.SaveChanges();
+            }
         }
     }
 }

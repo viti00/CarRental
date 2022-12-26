@@ -1,5 +1,6 @@
 using CarRental.Data;
 using CarRental.Infrastructure;
+using CarRental.Servces.CarService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<CarRentalDbContext>();
 builder.Services.AddRazorPages();
+builder.Services.AddControllers();
+
+builder.Services.AddScoped<ICarService, CarService>();
 
 var app = builder.Build();
 
@@ -26,6 +30,7 @@ else
    
     app.UseHsts();
 }
+
 app.PrepareDatabase();
 
 app.UseHttpsRedirection();
@@ -36,6 +41,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapDefaultControllerRoute();
 app.MapRazorPages();
 
 app.Run();

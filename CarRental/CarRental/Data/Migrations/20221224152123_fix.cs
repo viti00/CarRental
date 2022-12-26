@@ -4,7 +4,7 @@
 
 namespace CarRental.Migrations
 {
-    public partial class initial1 : Migration
+    public partial class fix : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
