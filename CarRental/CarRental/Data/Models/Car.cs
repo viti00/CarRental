@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static CarRental.Data.ModelsConstnants;
@@ -43,6 +44,8 @@ namespace CarRental.Data.Models
         [Required(ErrorMessage = "Полето е задължително!")]
         public int Year { get; set; }
 
+        public string? Description { get; set; }
+
         [ForeignKey(nameof(Engine))]
         public int EngineId { get; set; }
 
@@ -57,5 +60,14 @@ namespace CarRental.Data.Models
         public int TransmissionId { get; set; }
 
         public virtual Transmission? Transmission { get; set; }
+
+        public virtual ICollection<CarPhoto> Photos { get; set; } = new HashSet<CarPhoto>();
+
+        [NotMapped]
+        public List<string>? PhotosCollection { get; set; } = new List<string>();
+
+        [FromForm]
+        [NotMapped]
+        public IFormFileCollection? Files { get; set; }
     }
 }

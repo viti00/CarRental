@@ -3,6 +3,7 @@ using CarRental.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using static CarRental.GlobalVariables;
 
 namespace CarRental.Pages
 {
@@ -17,7 +18,7 @@ namespace CarRental.Pages
             _context = context;
         }
         [BindProperty]
-        public CarsSearchViewModel SearchTerm { get; set; }
+        public SearchTerm SearchTerm { get; set; }
 
         public void OnGet()
         {
@@ -26,6 +27,12 @@ namespace CarRental.Pages
             ViewData["MakeId"] = new SelectList(_context.Makes, "Id", "Name");
             ViewData["TransmissionId"] = new SelectList(_context.Transmissions, "Id", "Type");
             ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Name");
+        }
+
+        public IActionResult OnPost()
+        {
+            SearchTermData = SearchTerm;
+            return RedirectToAction("Index", "Cars");
         }
     }
 }

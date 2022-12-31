@@ -28,7 +28,16 @@ namespace CarRental.Pages.Cars
                 return NotFound();
             }
 
-            var car = await _context.Cars.FirstOrDefaultAsync(m => m.Id == id);
+            var car = await _context
+                      .Cars
+                      .Include(c => c.Category)
+                      .Include(c => c.Engine)
+                      .Include(c => c.Make)
+                      .Include(c => c.City)
+                      .Include(c => c.Transmission)
+                      .Include(c => c.Photos)
+                      .FirstOrDefaultAsync(m => m.Id == id);
+            car.PhotosCollection = car.Photos.Select(x => Convert.ToBase64String(x.Bytes)).ToList();
             if (car == null)
             {
                 return NotFound();

@@ -30,10 +30,11 @@ namespace CarRental.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("EngineId")
                         .HasColumnType("int");
@@ -64,6 +65,8 @@ namespace CarRental.Migrations
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("CityId");
+
                     b.HasIndex("EngineId");
 
                     b.HasIndex("MakeId");
@@ -71,6 +74,40 @@ namespace CarRental.Migrations
                     b.HasIndex("TransmissionId");
 
                     b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("CarRental.Data.Models.CarPhoto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<byte[]>("Bytes")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("CarId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileExtension")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Size")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("CarRental.Data.Models.Category", b =>
@@ -417,6 +454,12 @@ namespace CarRental.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("CarRental.Data.Models.City", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("CarRental.Data.Models.Engine", "Engine")
                         .WithMany()
                         .HasForeignKey("EngineId")
@@ -437,11 +480,24 @@ namespace CarRental.Migrations
 
                     b.Navigation("Category");
 
+                    b.Navigation("City");
+
                     b.Navigation("Engine");
 
                     b.Navigation("Make");
 
                     b.Navigation("Transmission");
+                });
+
+            modelBuilder.Entity("CarRental.Data.Models.CarPhoto", b =>
+                {
+                    b.HasOne("CarRental.Data.Models.Car", "Car")
+                        .WithMany("Photos")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Car");
                 });
 
             modelBuilder.Entity("CarRental.Data.Models.Model", b =>
@@ -515,6 +571,11 @@ namespace CarRental.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CarRental.Data.Models.Car", b =>
+                {
+                    b.Navigation("Photos");
                 });
 
             modelBuilder.Entity("CarRental.Data.Models.Make", b =>

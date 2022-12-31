@@ -1,0 +1,38 @@
+﻿@model CarRental.Pages.Cars.IndexModel
+
+@{
+    var previousPage = Model.QueryModel.CurrentPage - 1;
+    if (previousPage < 1)
+    {
+        previousPage = 1;
+    }
+    var nextPage = Model.QueryModel.CurrentPage + 1;
+    if (nextPage > Model.QueryModel.MaxPage)
+    {
+        nextPage = Model.QueryModel.MaxPage;
+    }
+}
+
+<div class="btn-container float-left">
+                        <a class="btn custom left @(Model.QueryModel.CurrentPage == 1 ? "disabled" : string.Empty)"
+                       asp-controller="Cars"
+                       asp-action="Index"
+                       asp-route-currentPage="@previousPage"
+                       >&lt&lt&lt</a>
+</div>
+<div class="d-flex flex-wrap justify-content-center align-items-center">
+    @foreach (var car in Model.Car)
+    {
+            <partial name="_CarsCardPartial" model="car" />
+    }
+</div>
+<div class="btn-container float-right">
+                        <a class="btn custom right @(Model.QueryModel.CurrentPage == Model.QueryModel.MaxPage ? "disabled" : string.Empty)"
+                       asp-controller="Cars"
+                       asp-action="Index"
+                       asp-route-currentPage="@nextPage"
+                       >&gt&gt&gt</a>
+</div>
+<div class="page-number-container">
+    <p class="text-light">Page @Model.QueryModel.CurrentPage from @Model.QueryModel.MaxPage</p>
+</div>

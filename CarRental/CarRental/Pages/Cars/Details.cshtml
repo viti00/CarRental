@@ -1,73 +1,91 @@
-﻿@page
+﻿@page "{id?}"
 @model CarRental.Pages.Cars.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+@section Styles{
+            <link rel="stylesheet" href="/css/CarDetails.css" media="screen">
+            <link rel="stylesheet" href="/css/nicepage.css" media="screen">
+            <meta name="generator" content="Nicepage 5.2.4, nicepage.com">
+            <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+            <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i">
+}
+    <section class="u-clearfix u-grey-50 u-valign-middle u-section-1" id="carousel_bb53">
+      <div class="u-expanded-height u-grey-60 u-shape u-shape-rectangle u-shape-1"></div>
+      <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-container-style u-layout-cell u-left-cell u-size-34 u-layout-cell-1">
+              <div class="u-container-layout u-valign-bottom u-container-layout-1">
+                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                     <div class="carousel-inner">
+                         @if(@Model.Car.PhotosCollection.Count == 0)
+                         {
+                            <div class="carousel-item active">
+                               <img class="d-block w-100" src="https://st4.depositphotos.com/14953852/22772/v/600/depositphotos_227725120-stock-illustration-image-available-icon-flat-vector.jpg" alt="First slide">
+                            </div>
+                         }
+                         else{
+                             @for (int i = 0; i < Model.Car.PhotosCollection.Count; i++)
+                             {
+                                if(i == 0)
+                                {
+                                    <div class="carousel-item active"position="@i">
+                                         <img class="d-block w-100" src="@String.Format("data:image/gif;base64,{0}", Model.Car.PhotosCollection[i]) alt="slide">
+                                    </div>
+                                }
+                                else
+                                {
+                                     <div class="carousel-item" position="@i">
+                                         <img class="d-block w-100" src="@String.Format("data:image/gif;base64,{0}", Model.Car.PhotosCollection[i]) alt="slide">
+                                     </div>
+                                }
 
-<div>
-    <h4>Car</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Car.Make)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.Make.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Car.Model)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.Model)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Car.HorsePower)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.HorsePower)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Car.FuelConsumption)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.FuelConsumption)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Car.PricePerDay)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.PricePerDay)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Car.City)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.City)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Car.Engine)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.Engine.Type)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Car.Category)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.Category.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Car.Transmission)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.Transmission.Type)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Car?.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+                             }
+                         }
+
+                     </div>
+                     <a onclick="Previous()" class="carousel-control-prev display-none" role="button">
+                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                       <span class="sr-only"></span>
+                     </a>
+                     <a onclick="Next()" class="carousel-control-next" role="button">
+                       <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                       <span class="sr-only"></span>
+                     </a>
+                 </div>
+                <div class="u-black u-container-style u-expanded-width u-group u-group-1">
+                  <div class="u-container-layout u-container-layout-2 results">
+                    <p class="text-center">Допълнителна информация:</p>
+                    <p class="u-text u-text-1">@Model.Car.Description</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="u-align-left u-black u-container-style u-layout-cell u-right-cell u-size-26 u-layout-cell-2">
+              <div class="u-container-layout u-container-layout-3">
+                <h2 class="u-align-center u-custom-font u-font-merriweather u-text u-text-2">@Model.Car.Make.Name @Model.Car.Model</h2>
+                <p class="u-text u-text-6">Година на производство: @Model.Car.Year</p>
+                <p class="u-text u-text-6">Място на вземане: @Model.Car.City.Name</p>
+                <p class="u-text u-text-6">Мощност: @Model.Car.HorsePower к.с.</p>
+                <p class="u-text u-text-6">Категория: @Model.Car.Category.Name</p>
+                <p class="u-text u-text-6">Двигател: @Model.Car.Engine.Type</p>
+                <p class="u-text u-text-6">Разход на гориво за 100км: @Model.Car.FuelConsumption</p>
+                <p class="u-text u-text-6">Скоростна кутия: @Model.Car.Transmission.Type</p>
+                <p class="u-align-center u-text u-text-9">Дневна цена: @Model.Car.PricePerDay лв.</p>
+                <a class="u-align-center u-btn u-btn-round u-button-style u-hover-white u-radius-16 u-white u-btn-1" title="Наеми">Наеми автомобила</a>
+                <a href="https://nicepage.com/k/astrology-website-templates" class="u-align-center u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-custom-color-1 u-palette-3-base u-radius-50 u-btn-2">Изтрий</a>
+                <a asp-page="Edit" asp-route-id="@Model.Car.Id" class="u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-custom-color-1 u-palette-3-base u-radius-50 u-btn-3">Редактирай</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+@section Scripts{
+                <script class="u-script" type="text/javascript" src="/js/nicepage.js" defer=""></script>
+                <script class="u-script" type="text/javascript" src="/js/jquery.js" defer=""></script>
+                <script src="/js/PreviousAndNextPhoto.js"></script>
+}

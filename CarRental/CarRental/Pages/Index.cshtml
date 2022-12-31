@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="~/css/SearchPage.css" />
 }
 
+
 <div class="section">
+    <div class="color-overlay"></div>
     <div class="wrapper col-sm-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-        <form method="get" asp-controller="Cars" asp-action="Index">
+        <form method="post">
         <div class="form-group parent">
                 <label asp-for="SearchTerm.SearchByMake" class="control-label">Марка:</label>
                 <select asp-for="SearchTerm.SearchByMake" id="make-select" class ="form-control" asp-items="ViewBag.MakeId"><option value=0></option></select>
@@ -44,12 +46,12 @@
                 <label class="control-label display-block">Свободна</label>
                 <div class="child">
                     <label asp-for="SearchTerm.DateToTake" class="control-label">от:</label>
-                    <input asp-for="SearchTerm.DateToTake" class ="form-control align-right"/>
+                    <input asp-for="SearchTerm.DateToTake" id="take-data-field" class ="form-control align-right"/>
                     <span asp-validation-for="SearchTerm.DateToTake" class="text-danger"></span>
                 </div>
                 <div class="child">
                     <label asp-for="SearchTerm.DateToReturn" class="control-label">до:</label>
-                    <input asp-for="SearchTerm.DateToReturn" class ="form-control align-right" />
+                    <input asp-for="SearchTerm.DateToReturn" id="return-data-field" class ="form-control align-right" disabled />
                     <span asp-validation-for="SearchTerm.DateToReturn" class="text-danger"></span>
                 </div>
         </div>
@@ -98,7 +100,8 @@
     </div>
 </div>
 @section Scripts {
-     <script src="/js/FillModels.js"></script> 
+     <script src="/js/FillModels.js"></script>
+     <script src="~/js/RemoveDisabledFromField.js"></script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

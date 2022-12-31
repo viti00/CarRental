@@ -35,8 +35,9 @@ namespace CarRental.Pages.Cars
         [BindProperty]
         public Car Car { get; set; }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync([FromForm] IFormFileCollection files)
         {
+            Car.Files = files;
             carService.ValidateCar(Car, ModelState);
             if (!ModelState.IsValid)
             {
@@ -49,6 +50,7 @@ namespace CarRental.Pages.Cars
                 return Page();
             }
             Car.Model = carService.GetModelById(int.Parse(Car.Model)).Name;
+            Car.Photos = carService.CreatePhotos(Car.Files);
 
             _context.Cars.Add(Car);
             await _context.SaveChangesAsync();

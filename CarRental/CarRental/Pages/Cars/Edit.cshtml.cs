@@ -8,16 +8,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CarRental.Data;
 using CarRental.Data.Models;
+using CarRental.Servces.CarService;
 
 namespace CarRental.Pages.Cars
 {
     public class EditModel : PageModel
     {
         private readonly CarRental.Data.CarRentalDbContext _context;
+        private readonly ICarService carService;
 
-        public EditModel(CarRental.Data.CarRentalDbContext context)
+        public EditModel(CarRental.Data.CarRentalDbContext context, ICarService carService)
         {
             _context = context;
+            this.carService = carService;
         }
 
         [BindProperty]
@@ -36,21 +39,34 @@ namespace CarRental.Pages.Cars
                 return NotFound();
             }
             Car = car;
-           ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
-           ViewData["EngineId"] = new SelectList(_context.Engines, "Id", "Type");
-           ViewData["MakeId"] = new SelectList(_context.Makes, "Id", "Name");
-           ViewData["TransmissionId"] = new SelectList(_context.Transmissions, "Id", "Type");
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
+            ViewData["EngineId"] = new SelectList(_context.Engines, "Id", "Type");
+            ViewData["MakeId"] = new SelectList(_context.Makes, "Id", "Name");
+            ViewData["TransmissionId"] = new SelectList(_context.Transmissions, "Id", "Type");
+            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Name");
+            ViewData["Model"] = new SelectList(_context.Models.Where(x => x.MakeId == Car.MakeId), "Name", "Name");
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync([FromForm] IFormFileCollection files, string id)
         {
+            // this is must because the car model creates new id every time
+            // can be fixed with another model without id or manual chosing id 
+            Car.Id = id;
+            Car.Files = files;
+            carService.ValidateCar(Car, ModelState);
             if (!ModelState.IsValid)
             {
+                var errors = ModelState.Values.SelectMany(x => x.Errors.Select(c => c.ErrorMessage)).ToList();
+                ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
+                ViewData["EngineId"] = new SelectList(_context.Engines, "Id", "Type");
+                ViewData["MakeId"] = new SelectList(_context.Makes, "Id", "Name");
+                ViewData["TransmissionId"] = new SelectList(_context.Transmissions, "Id", "Type");
+                ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Name");
+                ViewData["Model"] = new SelectList(_context.Models.Where(x => x.MakeId == Car.MakeId), "Name", "Name");
                 return Page();
             }
+            Car.Photos = carService.CreatePhotos(Car.Files);
 
             _context.Attach(Car).State = EntityState.Modified;
 

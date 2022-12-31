@@ -5,8 +5,24 @@
       "PackagePath": "staticwebassets\\CarRental.bundle.scp.css"
     },
     {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\CarDetails.css",
+      "PackagePath": "staticwebassets\\css\\CarDetails.css"
+    },
+    {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\CarsAll.css",
+      "PackagePath": "staticwebassets\\css\\CarsAll.css"
+    },
+    {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\CreateAndEditPages.css",
+      "PackagePath": "staticwebassets\\css\\CreateAndEditPages.css"
+    },
+    {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\SearchPage.css",
       "PackagePath": "staticwebassets\\css\\SearchPage.css"
+    },
+    {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\nicepage.css",
+      "PackagePath": "staticwebassets\\css\\nicepage.css"
     },
     {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\site.css",
@@ -17,8 +33,28 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\AddToSelectList.js",
+      "PackagePath": "staticwebassets\\js\\AddToSelectList.js"
+    },
+    {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\FillModels.js",
       "PackagePath": "staticwebassets\\js\\FillModels.js"
+    },
+    {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\PreviousAndNextPhoto.js",
+      "PackagePath": "staticwebassets\\js\\PreviousAndNextPhoto.js"
+    },
+    {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\RemoveDisabledFromField.js",
+      "PackagePath": "staticwebassets\\js\\RemoveDisabledFromField.js"
+    },
+    {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\jquery.js",
+      "PackagePath": "staticwebassets\\js\\jquery.js"
+    },
+    {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\nicepage.js",
+      "PackagePath": "staticwebassets\\js\\nicepage.js"
     },
     {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\site.js",
