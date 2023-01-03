@@ -63,6 +63,15 @@ namespace CarRental.Data.Models
 
         public virtual ICollection<CarPhoto> Photos { get; set; } = new HashSet<CarPhoto>();
 
+        public virtual ICollection<ReservedCar> CarRents { get; set; } = new HashSet<ReservedCar>();
+
+        [NotMapped]
+        [ForeignKey(nameof(Creator))]
+        public string? CreatorId { get; set; }
+
+        [NotMapped]
+        public virtual ApplicationUser? Creator { get; set; }
+
         [NotMapped]
         public List<string>? PhotosCollection { get; set; } = new List<string>();
 

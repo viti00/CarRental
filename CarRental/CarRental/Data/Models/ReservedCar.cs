@@ -19,5 +19,7 @@ namespace CarRental.Data.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
+
+        public string TenantIndentificator { get; set; }
     }
 }

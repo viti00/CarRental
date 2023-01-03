@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using CarRental.Data;
 using CarRental.Data.Models;
 using CarRental.Servces.CarService;
+using static CarRental.Infrastructure.ClaimsPrincipleExtension;
 
 namespace CarRental.Pages.Cars
 {
@@ -37,6 +38,7 @@ namespace CarRental.Pages.Cars
 
         public async Task<IActionResult> OnPostAsync([FromForm] IFormFileCollection files)
         {
+            Car.CreatorId = User.GetId();
             Car.Files = files;
             carService.ValidateCar(Car, ModelState);
             if (!ModelState.IsValid)

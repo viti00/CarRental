@@ -2,6 +2,11 @@
 let nextControl = document.querySelector(".carousel-control-next");
 let photosCount = document.querySelectorAll(".carousel-item").length;
 
+if (photosCount <= 1) {
+    let element = document.getElementById("next-btn");
+    element.classList.add("display-none");
+}
+
 function Previous() {
     let activeElement = document.querySelector(".active");
 

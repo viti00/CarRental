@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarRental.Data
 {
-    public class CarRentalDbContext : IdentityDbContext
+    public class CarRentalDbContext : IdentityDbContext<ApplicationUser>
     {
         public CarRentalDbContext(DbContextOptions<CarRentalDbContext> options)
             : base(options)
@@ -20,5 +20,6 @@ namespace CarRental.Data
         public DbSet<Model> Models { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<CarPhoto> Photos { get; set; }
+        public DbSet<DrivingLicensePhoto> DrivingLicensePhotos { get; set; }
     }
 }
