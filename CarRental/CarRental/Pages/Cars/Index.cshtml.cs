@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using CarRental.Data.Models;
 using CarRental.ViewModels;
 using CarRental.Servces.CarService;
-using static CarRental.GlobalVariables;
+using static CarRental.Global.GlobalVariables;
 
 namespace CarRental.Pages.Cars
 {

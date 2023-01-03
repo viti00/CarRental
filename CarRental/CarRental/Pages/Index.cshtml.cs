@@ -3,7 +3,7 @@ using CarRental.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using static CarRental.GlobalVariables;
+using static CarRental.Global.GlobalVariables;
 
 namespace CarRental.Pages
 {

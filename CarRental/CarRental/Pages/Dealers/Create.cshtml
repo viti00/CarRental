@@ -1,0 +1,40 @@
+﻿@page
+@model CarRental.Pages.Dealers.CreateModel
+
+@{
+    ViewData["Title"] = "Стани дилър";
+}
+
+@section Styles{
+        <link rel="stylesheet" href="~/css/CreateAndEditPages.css"/>
+}
+
+    <div class="section">
+    <div class="color-overlay"></div>
+    <div class="wrapper col-sm-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+       <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DealerRequest.FirstName" class="control-label">Име:<span class="text-danger">*</span></label>
+                <input asp-for="DealerRequest.FirstName" class="form-control" />
+                <span asp-validation-for="DealerRequest.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DealerRequest.LastName" class="control-label">Фамилия:<span class="text-danger">*</span></label>
+                <input asp-for="DealerRequest.LastName" class="form-control" />
+                <span asp-validation-for="DealerRequest.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DealerRequest.PhoneNumber" class="control-label">Телефон:<span class="text-danger">*</span></label>
+                <input asp-for="DealerRequest.PhoneNumber" class="form-control" />
+                <span asp-validation-for="DealerRequest.PhoneNumber" class="text-danger"></span>
+            </div>  
+            
+            <button type="submit" class="btn custom-btn">Подай заявка</button>
+        </form>
+    </div>
+
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

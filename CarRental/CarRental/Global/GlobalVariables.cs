@@ -1,6 +1,6 @@
 ﻿using CarRental.ViewModels;
 
-namespace CarRental
+namespace CarRental.Global
 {
     public static class GlobalVariables
     {

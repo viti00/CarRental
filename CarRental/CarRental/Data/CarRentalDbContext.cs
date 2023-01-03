@@ -21,5 +21,7 @@ namespace CarRental.Data
         public DbSet<City> Cities { get; set; }
         public DbSet<CarPhoto> Photos { get; set; }
         public DbSet<DrivingLicensePhoto> DrivingLicensePhotos { get; set; }
+        public DbSet<DealerRequest> DealerRequests { get; set; }
+        public DbSet<RentalApproveRequest> RentalApproveRequests { get; set; }
     }
 }

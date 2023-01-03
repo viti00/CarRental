@@ -6,7 +6,7 @@
     <div class="card">
         @if (Model.PhotosCollection != null && Model.PhotosCollection.Count > 0)
         {
-                <img class="card-img-top" src="@String.Format("data:image/gif;base64,{0}", Model.PhotosCollection[0])" alt="Image">
+                <img class="card-img-top" src="@String.Format("data:image/gif;base64,{0}", Model.PhotosCollection[0])">
         }
         else
         {

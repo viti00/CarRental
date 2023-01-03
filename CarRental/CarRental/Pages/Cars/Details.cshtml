@@ -27,19 +27,20 @@
                                <img class="d-block w-100" src="https://st4.depositphotos.com/14953852/22772/v/600/depositphotos_227725120-stock-illustration-image-available-icon-flat-vector.jpg" alt="First slide">
                             </div>
                          }
-                         else{
+                         else
+                         {
                              @for (int i = 0; i < Model.Car.PhotosCollection.Count; i++)
                              {
                                 if(i == 0)
                                 {
-                                    <div class="carousel-item active"position="@i">
-                                         <img class="d-block w-100" src="@String.Format("data:image/gif;base64,{0}", Model.Car.PhotosCollection[i]) alt="slide">
+                                    <div class="carousel-item active" position="@i">
+                                         <img class="d-block w-100" src="@String.Format("data:image/gif;base64,{0}", Model.Car.PhotosCollection[i])" alt="slide">
                                     </div>
                                 }
                                 else
                                 {
                                      <div class="carousel-item" position="@i">
-                                         <img class="d-block w-100" src="@String.Format("data:image/gif;base64,{0}", Model.Car.PhotosCollection[i]) alt="slide">
+                                         <img class="d-block" src="@String.Format("data:image/gif;base64,{0}", Model.Car.PhotosCollection[i])" alt="slide">
                                      </div>
                                 }
 

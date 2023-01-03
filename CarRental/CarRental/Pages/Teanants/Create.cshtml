@@ -1,0 +1,29 @@
+﻿@page
+@model CarRental.Pages.Teanants.CreateModel
+
+@{
+    ViewData["Title"] = "Заявка за наемател";
+}
+
+@section Styles{
+   <link rel="stylesheet" href="~/css/CreateAndEditPages.css"/>
+}
+
+    <div class="section">
+    <div class="color-overlay"></div>
+    <div class="wrapper col-sm-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+       <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RentalApproveRequest.Files">Моля качете снимки от двете страни на шофьорската си книжка:<span class="text-danger">*</span></label>
+                <input asp-for="RentalApproveRequest.Files"  name="files" class="form-control" type="file" multiple/>
+                <span asp-validation-for="RentalApproveRequest.Files" class="small text-danger"></span>
+            </div>
+            <button type="submit" class="btn custom-btn">Подай заявка</button>
+        </form>
+    </div>
+
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

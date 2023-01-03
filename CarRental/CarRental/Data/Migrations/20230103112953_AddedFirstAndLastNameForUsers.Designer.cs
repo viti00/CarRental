@@ -4,6 +4,7 @@ using CarRental.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(CarRentalDbContext))]
-    partial class CarRentalDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230103112953_AddedFirstAndLastNameForUsers")]
+    partial class AddedFirstAndLastNameForUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -224,37 +226,6 @@ namespace CarRental.Migrations
                     b.ToTable("Cities");
                 });
 
-            modelBuilder.Entity("CarRental.Data.Models.DealerRequest", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("DealerRequests");
-                });
-
             modelBuilder.Entity("CarRental.Data.Models.DrivingLicensePhoto", b =>
                 {
                     b.Property<int>("Id")
@@ -346,25 +317,6 @@ namespace CarRental.Migrations
                     b.HasIndex("MakeId");
 
                     b.ToTable("Models");
-                });
-
-            modelBuilder.Entity("CarRental.Data.Models.RentalApproveRequest", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("RentalApproveRequests");
                 });
 
             modelBuilder.Entity("CarRental.Data.Models.ReservedCar", b =>
@@ -611,17 +563,6 @@ namespace CarRental.Migrations
                     b.Navigation("Car");
                 });
 
-            modelBuilder.Entity("CarRental.Data.Models.DealerRequest", b =>
-                {
-                    b.HasOne("CarRental.Data.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("CarRental.Data.Models.DrivingLicensePhoto", b =>
                 {
                     b.HasOne("CarRental.Data.Models.ApplicationUser", "Driver")
@@ -642,17 +583,6 @@ namespace CarRental.Migrations
                         .IsRequired();
 
                     b.Navigation("Make");
-                });
-
-            modelBuilder.Entity("CarRental.Data.Models.RentalApproveRequest", b =>
-                {
-                    b.HasOne("CarRental.Data.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CarRental.Data.Models.ReservedCar", b =>

@@ -43,7 +43,6 @@ namespace CarRental.Pages.Cars
             carService.ValidateCar(Car, ModelState);
             if (!ModelState.IsValid)
             {
-                var errors = ModelState.Values.SelectMany(x => x.Errors.Select(c => c.ErrorMessage)).ToList();
                 ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
                 ViewData["EngineId"] = new SelectList(_context.Engines, "Id", "Type");
                 ViewData["MakeId"] = new SelectList(_context.Makes, "Id", "Name");
