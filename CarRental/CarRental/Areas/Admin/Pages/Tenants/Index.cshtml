@@ -1,0 +1,78 @@
+﻿@page
+@model CarRental.Areas.Admin.Pages.Tenants.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@{
+    int counter = 1;
+}
+
+
+@section Styles{
+                <link rel="stylesheet" href="~/css/DealerAndTenantsIndex.css" />
+}
+
+<div class="bs">
+    <div class="color-overlay"></div>
+    @if (Model.RentalApproveRequest.Count == 0)
+    {
+                <div class="no-customer">
+                        <h2 class="text-light">Все още няма заявки за наематели!</h2>
+                </div>
+    }
+    else
+    {
+                <div class="table-section">
+                    <table class="table table-hover table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Име</th>
+                                <th scope="col">Фамилия</th>
+                                <th scope="col">Имейл</th>
+                                <th scope="col">Телефон</th>
+                                <th scope="col">Шофьорска книжка №</th>
+                                <th scope="col">Шофьорска книжка снимки</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                    @foreach (var tenant in Model.RentalApproveRequest)
+                    {
+                        <tr data-id="@tenant.Id">
+                           <th scope="row">@counter</th>
+                           <td>@tenant.FirstName</td>
+                           <td>@tenant.LastName</td>
+                           <td>@tenant.User.Email</td>
+                           <td>@tenant.PhoneNumber</td>
+                           <td>@tenant.DrivingLicenseNumber</td>
+                           <td>
+                               @foreach (var photo in tenant.PhotosCollection)
+                               {
+                                  <img class="img" src="@String.Format("data:image/gif;base64,{0}", photo)">
+                               }
+                           </td>
+                           <td>
+                               <form asp-page-handler="edit" method="post" asp-route-id="@tenant.Id">
+                                    <button title="Одобри" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                               </form>
+                               <form asp-page-handler="delete" method="post" asp-route-id="@tenant.Id">
+                                    <button title="Откажи" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                               </form>
+                           </td>
+                        </tr>
+
+                        counter++;
+                    }
+                        </tbody>
+                    </table>
+                </div>
+    }
+</div>
+@section Scripts{
+            <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+            <script src="/js/TenantApprove.js"></script>
+}
+

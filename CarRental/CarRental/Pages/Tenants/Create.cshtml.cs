@@ -10,7 +10,7 @@ using CarRental.Data.Models;
 using CarRental.Infrastructure;
 using CarRental.Servces.TenantsService;
 
-namespace CarRental.Pages.Teanants
+namespace CarRental.Pages.Tenants
 {
     public class CreateModel : PageModel
     {
@@ -35,13 +35,16 @@ namespace CarRental.Pages.Teanants
         {
             RentalApproveRequest.Files = files;
             RentalApproveRequest.UserId = User.GetId();
-
+            if(RentalApproveRequest.Files == null || RentalApproveRequest.Files.Count < 1)
+            {
+                ModelState.AddModelError("File", "Задължително трябва да качите снимки");
+            }
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            RentalApproveRequest.Photos = tenantService.CreatePhotos(RentalApproveRequest.Files);
+            RentalApproveRequest.Photos = tenantService.CreatePhotos(RentalApproveRequest.Files, RentalApproveRequest.UserId);
 
             _context.RentalApproveRequests.Add(RentalApproveRequest);
             await _context.SaveChangesAsync();

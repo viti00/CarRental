@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\CreateAndEditPages.css"
     },
     {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\DealerAndTenantsIndex.css",
+      "PackagePath": "staticwebassets\\css\\DealerAndTenantsIndex.css"
+    },
+    {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\SearchPage.css",
       "PackagePath": "staticwebassets\\css\\SearchPage.css"
     },

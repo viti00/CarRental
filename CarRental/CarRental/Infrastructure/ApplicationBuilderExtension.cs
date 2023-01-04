@@ -28,7 +28,7 @@ namespace CarRental.Infrastructure
             data.Database.Migrate();
         }
 
-        public static void CreateDealerRole(IServiceProvider services)
+        private static void CreateDealerRole(IServiceProvider services)
         {
             var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 

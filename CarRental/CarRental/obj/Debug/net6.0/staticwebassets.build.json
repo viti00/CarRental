@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "S+amotQIza7+LsFusSAEN5zfN5/kjCs+gUnf2L2e2fY=",
+  "Hash": "n3KYHo6MeDKeYu9ZRmE1vWgM5SmhFrkhQpJ0h08kNTc=",
   "Source": "CarRental",
   "BasePath": "_content/CarRental",
   "Mode": "Default",
@@ -1120,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\CreateAndEditPages.css"
+    },
+    {
+      "Identity": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\DealerAndTenantsIndex.css",
+      "SourceId": "CarRental",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\",
+      "BasePath": "_content/CarRental",
+      "RelativePath": "css/DealerAndTenantsIndex.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\DealerAndTenantsIndex.css"
     },
     {
       "Identity": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\nicepage.css",

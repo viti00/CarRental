@@ -2,6 +2,7 @@ using CarRental.Data;
 using CarRental.Data.Models;
 using CarRental.Infrastructure;
 using CarRental.Servces.CarService;
+using CarRental.Servces.DealerService;
 using CarRental.Servces.TenantsService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<ICarService, CarService>();
 builder.Services.AddScoped<ITenantService, TenantService>();
+builder.Services.AddScoped<IDealerService, DealerService>();
 
 var app = builder.Build();
 
@@ -52,7 +54,15 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapDefaultControllerRoute();
+app.UseEndpoints(endpoint =>
+{
+    endpoint.MapControllerRoute(
+        name: "Areas",
+        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+        );
+
+    endpoint.MapDefaultControllerRoute();
+});
 app.MapRazorPages();
 
 app.Run();
