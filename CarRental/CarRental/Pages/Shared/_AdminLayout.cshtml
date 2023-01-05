@@ -1,11 +1,6 @@
 ﻿@using CarRental.Data.Models;
 @using static WebConstants
 @inject SignInManager<ApplicationUser> SignInManager;
-@inject UserManager<ApplicationUser> UserManager;
-
-@{
-    var user = await UserManager.GetUserAsync(User);
-}
 
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en">
@@ -31,37 +26,23 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-page="/Index">Начало</a>
+                            <a class="nav-link text-light" asp-area="" asp-page="/Index">Начало</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-controller="Cars" asp-action="Index">Всички обяви</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Cars" asp-action="Index">Всички обяви</a>
                         </li>
                         @if (SignInManager.IsSignedIn(User))
                         {
-                            @if (User.IsInRole(DealerRoleName))
+                            @if (User.IsInRole(AdministratorRoleName))
                             {
                                <li class="nav-item">
-                                   <a class="nav-link text-light" asp-controller="Cars" asp-action="Create" asp-route-type="dealer">Създай обява</a>
+                                   <a class="nav-link text-light" asp-area="Admin" asp-controller="Dealers" asp-action="Index">Заявки за дилърство</a>
                                </li>
                                <li class="nav-item">
-                                   <a class="nav-link text-light" asp-controller="Reservations" asp-action="Index" asp-route-type="dealer">Мои клиенти</a>
+                                   <a class="nav-link text-light" asp-area="Admin" asp-controller="Tenants" asp-action="Index">Заявки за наематели</a>
                                </li>
                             }
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-controller="Reservations" asp-action="Index" asp-route-type="tenant">Мои наеми</a>
-                            </li>
-                            @if (User.IsInRole(DealerRoleName) == false)
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" asp-controller="Dealers" asp-action="Create" asp-route-type="tenant">Стани дилър</a>
-                                </li>
-                            }
-                            @if (!user.CanRent)
-                            {
-                               <li class="nav-item">
-                                   <a class="nav-link text-light" asp-controller="Tenants" asp-action="Create" asp-route-type="tenant">Заявка за наемател</a>
-                               </li>
-                            }
+                            
                         }
                     </ul>
                     <partial name="_LoginPartial" />

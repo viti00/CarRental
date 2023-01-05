@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using CarRental.Data;
 using CarRental.Data.Models;
 using CarRental.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarRental.Pages.Dealers
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly CarRental.Data.CarRentalDbContext _context;

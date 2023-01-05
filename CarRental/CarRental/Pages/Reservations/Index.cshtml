@@ -1,0 +1,126 @@
+﻿@page "{type?}"
+@model CarRental.Pages.Reservations.IndexModel
+
+@{
+    ViewData["Title"] = "Резервации";
+}
+@{
+    int counter = 1;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/DealerAndTenantsIndex.css" />
+}
+
+<div class="bs">
+    <div class="color-overlay"></div>
+    @if (Model.ReservedCar.Count == 0)
+    {
+           <div class="no-customer">
+                <h2 class="text-light">Все още няма резервации!</h2>
+           </div>
+    }
+    else
+    {
+        <div class="table-section">
+          <table class="table table-hover table-dark">
+                  <thead>
+                      <tr>
+                          @if(ViewBag.type == "dealer")
+                          {
+                              <th scope="col">Наемател</th>
+                          }
+                          else
+                          {
+                             <th scope="col">Дилър</th>
+                          }
+                          <th scope="col">Телефон за връзка</th>
+                          <th scope="col">Имейл</th>
+                          <th scope="col">Автомобил</th>
+                          <th scope="col">Период на наем</th>
+                          <th scope="col">Обща сума (лв.)</th>
+                          <th scope="col"></th>
+                      </tr>
+                  </thead>
+              <tbody>
+                    @foreach (var reservation in Model.ReservedCar)
+                    {
+                       <tr data-id="@reservation.Id">
+                            @if (ViewBag.type == "dealer")
+                            {
+                                <td>@(reservation.Tenant.FirstName + " " + reservation.Tenant.LastName)</td>
+                                <td>@reservation.Tenant.PhoneNumber</td>
+                                <td>@reservation.Tenant.Email</td>
+                            }
+                            else
+                            {
+                                <td>@(reservation.Car.Creator.FirstName + " " + reservation.Car.Creator.LastName)</td>
+                                <td>@reservation.Car.Creator.PhoneNumber</td>
+                                <td>@reservation.Car.Creator.Email</td>
+                            }
+                           <td>@(reservation.Car.Make.Name + " " + reservation.Car.Model + " " + reservation.Car.Year)</td>
+                           <td>@(reservation.StartDate.ToString("MM/dd/yyyy") + "-" + reservation.EndDate.ToString("MM/dd/yyyy"))</td>
+                           <td>@((reservation.EndDate - reservation.StartDate).TotalDays * reservation.Car.PricePerDay)</td>
+                           <td>
+                              <form asp-page-handler="delete" method="post" asp-route-id="@reservation.Id">
+                                   <button title="Откажи" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                              </form>
+                           </td>
+                       </tr>
+
+                        counter++;
+                    }
+              </tbody>
+          </table>
+        </div>
+    }
+</div>
+@section Scripts{
+                <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+}
+
+@*<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservedCar[0].Car)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservedCar[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservedCar[0].EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservedCar[0].IsActive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ReservedCar) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Car.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@

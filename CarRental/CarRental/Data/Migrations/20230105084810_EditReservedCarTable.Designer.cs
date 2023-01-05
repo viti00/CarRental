@@ -4,6 +4,7 @@ using CarRental.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(CarRentalDbContext))]
-    partial class CarRentalDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230105084810_EditReservedCarTable")]
+    partial class EditReservedCarTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,14 +103,14 @@ namespace CarRental.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<int>("CityId")
                         .HasColumnType("int");
-
-                    b.Property<string>("CreatorId")
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -140,11 +142,11 @@ namespace CarRental.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApplicationUserId");
+
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("CityId");
-
-                    b.HasIndex("CreatorId");
 
                     b.HasIndex("EngineId");
 
@@ -392,6 +394,7 @@ namespace CarRental.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CarId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("EndDate")
@@ -572,6 +575,10 @@ namespace CarRental.Migrations
 
             modelBuilder.Entity("CarRental.Data.Models.Car", b =>
                 {
+                    b.HasOne("CarRental.Data.Models.ApplicationUser", null)
+                        .WithMany("Cars")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("CarRental.Data.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
@@ -583,10 +590,6 @@ namespace CarRental.Migrations
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("CarRental.Data.Models.ApplicationUser", "Creator")
-                        .WithMany("Cars")
-                        .HasForeignKey("CreatorId");
 
                     b.HasOne("CarRental.Data.Models.Engine", "Engine")
                         .WithMany()
@@ -609,8 +612,6 @@ namespace CarRental.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("City");
-
-                    b.Navigation("Creator");
 
                     b.Navigation("Engine");
 
@@ -678,7 +679,9 @@ namespace CarRental.Migrations
                 {
                     b.HasOne("CarRental.Data.Models.Car", "Car")
                         .WithMany("CarRents")
-                        .HasForeignKey("CarId");
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CarRental.Data.Models.ApplicationUser", "Tenant")
                         .WithMany("ReservedCars")

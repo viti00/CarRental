@@ -1,4 +1,5 @@
 ﻿@page "{id?}"
+@using CarRental.Infrastructure;
 @model CarRental.Pages.Cars.DetailsModel
 
 @{
@@ -24,7 +25,7 @@
                          @if(@Model.Car.PhotosCollection.Count == 0)
                          {
                             <div class="carousel-item active">
-                               <img class="d-block w-100" src="https://st4.depositphotos.com/14953852/22772/v/600/depositphotos_227725120-stock-illustration-image-available-icon-flat-vector.jpg" alt="First slide">
+                                   <img class="d-block w-100 custom-image" src="https://st4.depositphotos.com/14953852/22772/v/600/depositphotos_227725120-stock-illustration-image-available-icon-flat-vector.jpg" alt="First slide">
                             </div>
                          }
                          else
@@ -34,13 +35,13 @@
                                 if(i == 0)
                                 {
                                     <div class="carousel-item active" position="@i">
-                                         <img class="d-block w-100" src="@String.Format("data:image/gif;base64,{0}", Model.Car.PhotosCollection[i])" alt="slide">
+                                         <img class="d-block w-100 custom-image" src="@String.Format("data:image/gif;base64,{0}", Model.Car.PhotosCollection[i])" alt="slide">
                                     </div>
                                 }
                                 else
                                 {
                                      <div class="carousel-item" position="@i">
-                                         <img class="d-block w-100" src="@String.Format("data:image/gif;base64,{0}", Model.Car.PhotosCollection[i])" alt="slide">
+                                          <img class="d-block w-100 custom-image" src="@String.Format("data:image/gif;base64,{0}", Model.Car.PhotosCollection[i])" alt="slide">
                                      </div>
                                 }
 
@@ -68,17 +69,23 @@
             <div class="u-align-left u-black u-container-style u-layout-cell u-right-cell u-size-26 u-layout-cell-2">
               <div class="u-container-layout u-container-layout-3">
                 <h2 class="u-align-center u-custom-font u-font-merriweather u-text u-text-2">@Model.Car.Make.Name @Model.Car.Model</h2>
-                <p class="u-text u-text-6">Година на производство: @Model.Car.Year</p>
-                <p class="u-text u-text-6">Място на вземане: @Model.Car.City.Name</p>
-                <p class="u-text u-text-6">Мощност: @Model.Car.HorsePower к.с.</p>
-                <p class="u-text u-text-6">Категория: @Model.Car.Category.Name</p>
-                <p class="u-text u-text-6">Двигател: @Model.Car.Engine.Type</p>
-                <p class="u-text u-text-6">Разход на гориво за 100км: @Model.Car.FuelConsumption</p>
-                <p class="u-text u-text-6">Скоростна кутия: @Model.Car.Transmission.Type</p>
+                <p class="u-text u-text-4">Година на производство: @Model.Car.Year г.</p>
+                <p class="u-text u-text-4">Място на вземане: @Model.Car.City.Name</p>
+                <p class="u-text u-text-4">Мощност: @Model.Car.HorsePower к.с.</p>
+                <p class="u-text u-text-4">Категория: @Model.Car.Category.Name</p>
+                <p class="u-text u-text-4">Двигател: @Model.Car.Engine.Type</p>
+                <p class="u-text u-text-4">Разход на гориво за 100км: @Model.Car.FuelConsumption л.</p>
+                <p class="u-text u-text-4">Скоростна кутия: @Model.Car.Transmission.Type</p>
                 <p class="u-align-center u-text u-text-9">Дневна цена: @Model.Car.PricePerDay лв.</p>
-                <a class="u-align-center u-btn u-btn-round u-button-style u-hover-white u-radius-16 u-white u-btn-1" title="Наеми">Наеми автомобила</a>
-                <a href="https://nicepage.com/k/astrology-website-templates" class="u-align-center u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-custom-color-1 u-palette-3-base u-radius-50 u-btn-2">Изтрий</a>
-                <a asp-page="Edit" asp-route-id="@Model.Car.Id" class="u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-custom-color-1 u-palette-3-base u-radius-50 u-btn-3">Редактирай</a>
+                <a asp-controller="Reservations" asp-action="Create" asp-route-carId="@Model.Car.Id" class="u-align-center u-btn u-btn-round u-button-style u-hover-white u-radius-16 u-white u-btn-1" title="Наеми">Наеми автомобила</a>
+                @if(Model.Car.CreatorId == User.GetId())
+                {
+                    <form asp-page-handler="delete" asp-route-carId="@Model.Car.Id" method="post">
+                        <button class="u-align-center u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-custom-color-1 u-palette-3-base u-radius-50 u-btn-2">Изтрий</button>
+                    </form>
+                    <a asp-page="Edit" asp-route-id="@Model.Car.Id" class="u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-custom-color-1 u-palette-3-base u-radius-50 u-btn-3">Редактирай</a>
+                }
+                       
               </div>
             </div>
           </div>

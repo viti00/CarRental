@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using CarRental.Data;
 using CarRental.Data.Models;
 using CarRental.Servces.CarService;
+using CarRental.Infrastructure;
 
 namespace CarRental.Pages.Cars
 {
@@ -38,6 +39,10 @@ namespace CarRental.Pages.Cars
             {
                 return NotFound();
             }
+            if(car.CreatorId != User.GetId())
+            {
+                return BadRequest();
+            }
             Car = car;
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
             ViewData["EngineId"] = new SelectList(_context.Engines, "Id", "Type");
@@ -50,8 +55,6 @@ namespace CarRental.Pages.Cars
 
         public async Task<IActionResult> OnPostAsync([FromForm] IFormFileCollection files, string id)
         {
-            // this is must because the car model creates new id every time
-            // can be fixed with another model without id or manual chosing id 
             Car.Id = id;
             Car.Files = files;
             carService.ValidateCar(Car, ModelState);
@@ -69,6 +72,7 @@ namespace CarRental.Pages.Cars
             Car.Photos = carService.CreatePhotos(Car.Files);
 
             _context.Attach(Car).State = EntityState.Modified;
+
 
             try
             {

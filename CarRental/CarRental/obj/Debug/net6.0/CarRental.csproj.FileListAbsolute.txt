@@ -838,3 +838,4 @@ E:\Coding\C# coding\CarRental\CarRental-main\CarRental-main\CarRental\CarRental\
 E:\Coding\C# coding\CarRental\CarRental-main\CarRental-main\CarRental\CarRental\obj\Debug\net6.0\CarRental.pdb
 E:\Coding\C# coding\CarRental\CarRental-main\CarRental-main\CarRental\CarRental\obj\Debug\net6.0\CarRental.genruntimeconfig.cache
 E:\Coding\C# coding\CarRental\CarRental-main\CarRental-main\CarRental\CarRental\obj\Debug\net6.0\ref\CarRental.dll
+E:\Coding\C# coding\CarRental\CarRental\CarRental\CarRental\obj\Debug\net6.0\scopedcss\Pages\Shared\_AdminLayout.cshtml.rz.scp.css

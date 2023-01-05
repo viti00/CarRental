@@ -65,11 +65,9 @@ namespace CarRental.Data.Models
 
         public virtual ICollection<ReservedCar> CarRents { get; set; } = new HashSet<ReservedCar>();
 
-        [NotMapped]
         [ForeignKey(nameof(Creator))]
         public string? CreatorId { get; set; }
 
-        [NotMapped]
         public virtual ApplicationUser? Creator { get; set; }
 
         [NotMapped]

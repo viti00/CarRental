@@ -1,0 +1,37 @@
+﻿@page "{carId?}"
+@model CarRental.Pages.Reservations.CreateModel
+
+@{
+    ViewData["Title"] = "Резервирай";
+}
+
+@section Styles{
+            <link rel="stylesheet" href="~/css/CreateAndEditPages.css"/>
+}
+
+    <div class="section">
+    <div class="color-overlay"></div>
+    <div class="wrapper col-sm-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+       <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ReservedCar.StartDate" class="control-label">Начална дата:<span class="text-danger">*</span></label>
+                <input asp-for="ReservedCar.StartDate" class="form-control" />
+                <span asp-validation-for="ReservedCar.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReservedCar.EndDate" class="control-label">Дата на връщане:<span class="text-danger">*</span></label>
+                <input asp-for="ReservedCar.EndDate" class="form-control" />
+                <span asp-validation-for="ReservedCar.EndDate" class="text-danger"></span>
+            </div>
+            <div class="text-danger">
+                @Html.ValidationMessage("NotAvailable")
+                </div>
+            <button type="submit" class="btn custom-btn">Резервирай</button>
+        </form>
+    </div>
+
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

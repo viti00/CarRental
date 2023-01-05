@@ -9,9 +9,13 @@ using CarRental.Data;
 using CarRental.Data.Models;
 using CarRental.Servces.CarService;
 using static CarRental.Infrastructure.ClaimsPrincipleExtension;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using static CarRental.WebConstants;
 
 namespace CarRental.Pages.Cars
 {
+    [Authorize(Roles = DealerRoleName)]
     public class CreateModel : PageModel
     {
         private readonly CarRental.Data.CarRentalDbContext _context;

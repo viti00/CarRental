@@ -15,5 +15,13 @@ namespace CarRental.Servces.CarService
         public AllQueryCarsModel GetAllPerPage(IList<Car> cars, AllQueryCarsModel model);
 
         public List<CarPhoto> CreatePhotos(IFormFileCollection files);
+
+        public bool ChekCarAvailable(ReservedCar reservedCar);
+
+        public List<ReservedCar> GetReservedByDealer(string dealerId);
+
+        public List<ReservedCar> GetMyReservations(string userId);
+
+        public bool DeleteCar(string carId, string userId, bool isAdministrator);
     }
 }

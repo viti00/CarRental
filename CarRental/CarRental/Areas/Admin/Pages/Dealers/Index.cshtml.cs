@@ -8,10 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using CarRental.Data;
 using CarRental.Data.Models;
 using CarRental.Servces.DealerService;
+using Microsoft.AspNetCore.Authorization;
+using static CarRental.WebConstants;
 
 namespace CarRental.Areas.Admin.Pages.Dealers
 {
     [Area(AdminConstants.AreaName)]
+    [Authorize(Roles = AdministratorRoleName)]
     public class IndexModel : PageModel
     {
         private readonly CarRental.Data.CarRentalDbContext _context;

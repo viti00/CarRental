@@ -56,28 +56,34 @@ namespace CarRental.Infrastructure
             Task
                 .Run(async () =>
                 {
+                    IdentityRole role;
                     if (await roleManager.RoleExistsAsync(AdministratorRoleName))
                     {
-                        return;
+                        role = roleManager.Roles.FirstOrDefault(x => x.Name == AdministratorRoleName);
                     }
-
-                    var role = new IdentityRole { Name = AdministratorRoleName };
-
-                    await roleManager.CreateAsync(role);
-
-                    const string adminEmail = "admin@admin.com";
-                    const string adminUsername = "admin";
-                    const string adminPassword = "123admin123";
-
-                    var user = new ApplicationUser
+                    else
                     {
-                        Email = adminEmail,
-                        UserName = adminUsername,
-                    };
+                        role = new IdentityRole { Name = AdministratorRoleName };
 
-                    await userManager.CreateAsync(user, adminPassword);
+                        await roleManager.CreateAsync(role);
+                    }
+                    
+                    if(userManager.Users.FirstOrDefault(x=> x.UserName == "admin") == null)
+                    {
+                        const string adminEmail = "admin@admin.com";
+                        const string adminUsername = "admin";
+                        const string adminPassword = "123admin123";
 
-                    await userManager.AddToRoleAsync(user, role.Name);
+                        var user = new ApplicationUser
+                        {
+                            Email = adminEmail,
+                            UserName = adminUsername,
+                        };
+
+                        await userManager.CreateAsync(user, adminPassword);
+
+                        await userManager.AddToRoleAsync(user, role.Name);
+                    }
                 })
                 .GetAwaiter()
                 .GetResult();

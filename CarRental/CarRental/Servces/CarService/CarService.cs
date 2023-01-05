@@ -2,6 +2,7 @@
 using CarRental.Data.Models;
 using CarRental.ViewModels;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarRental.Servces.CarService
 {
@@ -234,6 +235,82 @@ namespace CarRental.Servces.CarService
             return carsToReturn;
         }
 
+        public List<ReservedCar> GetReservedByDealer(string dealerId)
+        {
+
+            return context.ReservedCars
+                .Include(c => c.Car).ThenInclude(c => c.Creator)
+                .Include(c => c.Car).ThenInclude(c => c.Make)
+                .Include(c=> c.Tenant)
+                .Where(x => x.Car.CreatorId == dealerId)
+                .ToList();
+        }
+
+        public List<ReservedCar> GetMyReservations(string userId)
+        {
+            return context.ReservedCars
+                .Include(c => c.Car).ThenInclude(c=> c.Creator)
+                .Include(c=> c.Car).ThenInclude(c=> c.Make)
+                .Where(x => x.Tenant.Id == userId)
+                .ToList();
+        }
+
+        public bool DeleteCar(string carId,string userId, bool isAdministrator)
+        {
+            var user = context.Users.FirstOrDefault(x => x.Id == userId);
+            var car = GetCarById(carId);
+
+            if(user == null)
+            {
+                return false;
+            }
+
+            if(car == null)
+            {
+                return false;
+            }
+
+            if(!isAdministrator || user.Id != car.CreatorId)
+            {
+                return false;
+            }
+
+            try
+            {
+                context.RemoveRange(context.ReservedCars.Where(x => x.CarId == car.Id).ToList());
+                context.Cars.Remove(car);
+                context.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool ChekCarAvailable(ReservedCar reservedCar)
+        {
+            var car = context.Cars.FirstOrDefault(x => x.Id == reservedCar.CarId);
+            var reservations = context.ReservedCars.Where(x => x.CarId == reservedCar.CarId).ToList();
+
+            if(car == null)
+            {
+                return false;
+            }
+            if(reservations.Count == 0)
+            {
+                return true;
+            }
+
+            if(!reservations.Any(x=> HasReservation(x.StartDate, x.EndDate, reservedCar.StartDate, reservedCar.EndDate)))
+            {
+                return true;
+            }
+            return false;
+        }
+
         private bool HasReservation(DateTime reservationStartDate, DateTime reservationEndDate, DateTime? startDate, DateTime? endDate)
         {
             if((startDate.Value.Ticks >= reservationStartDate.Ticks && startDate.Value.Ticks <= reservationEndDate.Ticks)
@@ -306,5 +383,8 @@ namespace CarRental.Servces.CarService
 
             return photos;
         }
+
+        private Car GetCarById(string carId)
+            => context.Cars.FirstOrDefault(x => x.Id == carId);
     }
 }

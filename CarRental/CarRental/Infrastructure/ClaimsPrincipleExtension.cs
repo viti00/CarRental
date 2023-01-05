@@ -1,5 +1,6 @@
-﻿using System.Security.Claims;
-
+﻿using CarRental.Data;
+using System.Security.Claims;
+using static CarRental.WebConstants;
 namespace CarRental.Infrastructure
 {
     public static class ClaimsPrincipleExtension
@@ -23,7 +24,7 @@ namespace CarRental.Infrastructure
             {
                 return false;
             }
-            return user.IsInRole("Admin"/*AdministratorRoleName*/);
+            return user.IsInRole(AdministratorRoleName);
         }
     }
 }

@@ -9,9 +9,11 @@ using CarRental.Data;
 using CarRental.Data.Models;
 using CarRental.Infrastructure;
 using CarRental.Servces.TenantsService;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarRental.Pages.Tenants
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly CarRental.Data.CarRentalDbContext _context;
@@ -25,6 +27,11 @@ namespace CarRental.Pages.Tenants
 
         public IActionResult OnGet()
         {
+            var user = _context.Users.FirstOrDefault(x => x.Id == User.GetId());
+            if (user.CanRent)
+            {
+                return RedirectToPage("./Index");
+            }
             return Page();
         }
 
@@ -43,8 +50,12 @@ namespace CarRental.Pages.Tenants
             {
                 return Page();
             }
-
             RentalApproveRequest.Photos = tenantService.CreatePhotos(RentalApproveRequest.Files, RentalApproveRequest.UserId);
+            var user = _context.Users.FirstOrDefault(x => x.Id == User.GetId());
+            if (user.CanRent)
+            {
+                return RedirectToPage("./Index");
+            }
 
             _context.RentalApproveRequests.Add(RentalApproveRequest);
             await _context.SaveChangesAsync();

@@ -8,9 +8,9 @@ namespace CarRental.Data.Models
         public string Id { get; set; } = Guid.NewGuid().ToString();
 
         [ForeignKey(nameof(Car))]
-        public string CarId { get; set; }
+        public string? CarId { get; set; }
 
-        public virtual Car Car { get; set; }
+        public virtual Car? Car { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
@@ -20,6 +20,8 @@ namespace CarRental.Data.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
 
-        public string TenantIndentificator { get; set; }
+        public ApplicationUser? Tenant { get; set; }
+
+        public bool IsActive { get; set; } = true;
     }
 }

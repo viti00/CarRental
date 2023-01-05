@@ -9,9 +9,14 @@ using CarRental.Data;
 using CarRental.Data.Models;
 using System.ComponentModel.DataAnnotations;
 using CarRental.Servces.TenantsService;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
+using static CarRental.WebConstants;
 
 namespace CarRental.Areas.Admin.Pages.Tenants
 {
+    [Area(AdminConstants.AreaName)]
+    [Authorize(Roles = AdministratorRoleName)]
     public class IndexModel : PageModel
     {
         private readonly CarRental.Data.CarRentalDbContext _context;
