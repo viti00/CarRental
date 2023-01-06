@@ -45,6 +45,10 @@ namespace CarRental.Pages.Cars
             Car.CreatorId = User.GetId();
             Car.Files = files;
             carService.ValidateCar(Car, ModelState);
+            if(Car.Files.Count > 20)
+            {
+                ModelState.AddModelError("Files", "Позволеният лимит на снимките е 20!");
+            }
             if (!ModelState.IsValid)
             {
                 ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
@@ -52,6 +56,7 @@ namespace CarRental.Pages.Cars
                 ViewData["MakeId"] = new SelectList(_context.Makes, "Id", "Name");
                 ViewData["TransmissionId"] = new SelectList(_context.Transmissions, "Id", "Type");
                 ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Name");
+                ViewData["Model"] = new SelectList(_context.Models.Where(x => x.MakeId == Car.MakeId), "Id", "Name");
                 return Page();
             }
             Car.Model = carService.GetModelById(int.Parse(Car.Model)).Name;

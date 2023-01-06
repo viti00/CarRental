@@ -9,6 +9,7 @@ using CarRental.Data;
 using CarRental.Data.Models;
 using CarRental.Infrastructure;
 using Microsoft.AspNetCore.Authorization;
+using static CarRental.WebConstants;
 
 namespace CarRental.Pages.Dealers
 {
@@ -24,6 +25,14 @@ namespace CarRental.Pages.Dealers
 
         public IActionResult OnGet()
         {
+            if (User.IsInRole(DealerRoleName))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            if(!User.IsInRole(DealerRoleName) && _context.DealerRequests.Any(x=> x.UserId == User.GetId()))
+            {
+                return RedirectToAction("Info", "Dealers");
+            }
             return Page();
         }
 
@@ -36,7 +45,6 @@ namespace CarRental.Pages.Dealers
 
             if (!ModelState.IsValid)
             {
-                var errors = ModelState.Values.SelectMany(x => x.Errors.Select(c => c.ErrorMessage)).ToList();
                 return Page();
             }
 

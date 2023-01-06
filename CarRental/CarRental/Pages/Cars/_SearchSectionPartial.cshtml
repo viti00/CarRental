@@ -1,0 +1,23 @@
+﻿@model AllQueryCarsModel
+
+<div class="search-container">
+            <form>
+                <div class="row justify-content-center">
+                    <div class="col-25">
+                        <label asp-for="Sorting" class="text-light">Сортирай:</label>
+                    </div>
+                    <div class="col-75">
+                        <select asp-for="Sorting" id="sorting">
+                            <option value="0" selected></option>
+                            <option value="1">Година на производство А-Я</option>
+                            <option value="2">Година на производство Я-А</option>
+                            <option value="3">Дневна цена А-Я</option>
+                            <option value="4">Дневна цена Я-А</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <input id="hiden-button" style="display: none" type="submit" value="Сортирай">
+                </div>
+            </form>
+        </div>

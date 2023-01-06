@@ -53,6 +53,18 @@
       "PackagePath": "staticwebassets\\js\\RemoveDisabledFromField.js"
     },
     {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\RemoveDisabledOnLoadForData.js",
+      "PackagePath": "staticwebassets\\js\\RemoveDisabledOnLoadForData.js"
+    },
+    {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\RemoveDisabledOnLoadForModel.js",
+      "PackagePath": "staticwebassets\\js\\RemoveDisabledOnLoadForModel.js"
+    },
+    {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\SortOnChange.js",
+      "PackagePath": "staticwebassets\\js\\SortOnChange.js"
+    },
+    {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\jquery.js",
       "PackagePath": "staticwebassets\\js\\jquery.js"
     },
@@ -63,6 +75,10 @@
     {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\lib\\Images\\logo.png",
+      "PackagePath": "staticwebassets\\lib\\Images\\logo.png"
     },
     {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\lib\\bootstrap\\LICENSE",

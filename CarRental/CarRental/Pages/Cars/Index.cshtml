@@ -3,7 +3,7 @@
 @model CarRental.Pages.Cars.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Обяви";
 }
 
 @section Styles{
@@ -14,6 +14,7 @@
     <div class="color-overlay"></div>
 
     <div class="elements">
+        <partial name="_SearchSectionPartial" model="Model.QueryModel"/>
         <div class="row res-container">
             <div class="row post-cards">
                 @if (Model.Car.Count() == 0 && Model.QueryModel.SearchTerm != null)
@@ -32,3 +33,6 @@
         </div>
     </div>
 </div>
+@section Scripts {
+        <script src="/js/SortOnChange.js"></script>
+}

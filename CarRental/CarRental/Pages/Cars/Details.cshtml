@@ -77,11 +77,11 @@
                 <p class="u-text u-text-4">Разход на гориво за 100км: @Model.Car.FuelConsumption л.</p>
                 <p class="u-text u-text-4">Скоростна кутия: @Model.Car.Transmission.Type</p>
                 <p class="u-align-center u-text u-text-9">Дневна цена: @Model.Car.PricePerDay лв.</p>
-                <a asp-controller="Reservations" asp-action="Create" asp-route-carId="@Model.Car.Id" class="u-align-center u-btn u-btn-round u-button-style u-hover-white u-radius-16 u-white u-btn-1" title="Наеми">Наеми автомобила</a>
+                <a asp-controller="Reservations" asp-action="Create" asp-route-carId="@Model.Car.Id" class="u-align-center u-btn u-btn-round u-button-style u-hover-white u-radius-16 btn-rent u-white u-btn-1">Наеми автомобила</a>
                 @if(Model.Car.CreatorId == User.GetId())
                 {
                     <form asp-page-handler="delete" asp-route-carId="@Model.Car.Id" method="post">
-                        <button class="u-align-center u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-custom-color-1 u-palette-3-base u-radius-50 u-btn-2">Изтрий</button>
+                            <button class="u-align-center u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-custom-color-1 u-palette-3-base u-radius-50 u-btn-2">Изтрий</button>
                     </form>
                     <a asp-page="Edit" asp-route-id="@Model.Car.Id" class="u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-custom-color-1 u-palette-3-base u-radius-50 u-btn-3">Редактирай</a>
                 }

@@ -4,6 +4,7 @@ using CarRental.Data.Models;
 using CarRental.ViewModels;
 using CarRental.Servces.CarService;
 using static CarRental.Global.GlobalVariables;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CarRental.Pages.Cars
 {
@@ -37,6 +38,7 @@ namespace CarRental.Pages.Cars
                 .ToListAsync();
             }
             QueryModel = carService.GetAllPerPage(Car, model);
+            QueryModel.Sorting = model.Sorting;
             Car = QueryModel.Cars;
         }
     }

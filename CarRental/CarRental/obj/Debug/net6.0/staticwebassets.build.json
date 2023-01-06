@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "n3KYHo6MeDKeYu9ZRmE1vWgM5SmhFrkhQpJ0h08kNTc=",
+  "Hash": "Qh2g9QbSEexdhIY2EoeCDPkqIYhJfr7Dd0AHJ30hvAE=",
   "Source": "CarRental",
   "BasePath": "_content/CarRental",
   "Mode": "Default",
@@ -1309,6 +1309,40 @@
       "OriginalItemSpec": "wwwroot\\js\\RemoveDisabledFromField.js"
     },
     {
+      "Identity": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\RemoveDisabledOnLoadForData.js",
+      "SourceId": "CarRental",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\",
+      "BasePath": "_content/CarRental",
+      "RelativePath": "js/RemoveDisabledOnLoadForData.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\RemoveDisabledOnLoadForData.js"
+    },
+    {
+      "Identity": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\RemoveDisabledOnLoadForModel.js",
+      "SourceId": "CarRental",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\",
+      "BasePath": "_content/CarRental",
+      "RelativePath": "js/RemoveDisabledOnLoadForModel.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\RemoveDisabledOnLoadForModel.js"
+    },
+    {
       "Identity": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\site.js",
       "SourceId": "CarRental",
       "SourceType": "Discovered",
@@ -1324,6 +1358,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\SortOnChange.js",
+      "SourceId": "CarRental",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\",
+      "BasePath": "_content/CarRental",
+      "RelativePath": "js/SortOnChange.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\SortOnChange.js"
     },
     {
       "Identity": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
@@ -2089,6 +2140,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
+    },
+    {
+      "Identity": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\lib\\Images\\logo.png",
+      "SourceId": "CarRental",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\",
+      "BasePath": "_content/CarRental",
+      "RelativePath": "lib/Images/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\Images\\logo.png"
     },
     {
       "Identity": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\lib\\jquery\\dist\\jquery.js",

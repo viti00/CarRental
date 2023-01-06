@@ -83,4 +83,5 @@ td{
     .img:hover {
         transform: scale(10);
         margin-top: 50%;
+        margin-right: 150%
     }

@@ -1,4 +1,5 @@
 ﻿using CarRental.Data.Models;
+using System;
 using static CarRental.ViewModels.ModelConstants.ModelConstants;
 
 namespace CarRental.ViewModels
@@ -14,5 +15,7 @@ namespace CarRental.ViewModels
         public int MaxPage { get; init; }
 
         public SearchTerm SearchTerm { get; set; }
+
+        public Sorting Sorting { get; set; }
     }
 }

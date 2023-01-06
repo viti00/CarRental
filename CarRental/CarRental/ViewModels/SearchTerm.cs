@@ -32,8 +32,8 @@ namespace CarRental.ViewModels
 
         public double? HorsePowerMax { get; set; }
 
-        public double? FuelConsumptionMin { get; set; }
+        public int? YearFrom { get; set; }
 
-        public double? FuelConsumptionMax { get; set; }
+        public int? YearTo { get; set; }
     }
 }

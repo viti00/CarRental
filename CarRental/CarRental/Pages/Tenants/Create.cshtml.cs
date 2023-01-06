@@ -32,6 +32,10 @@ namespace CarRental.Pages.Tenants
             {
                 return RedirectToPage("./Index");
             }
+            if (!user.CanRent && _context.RentalApproveRequests.Any(x => x.UserId == user.Id))
+            {
+                return RedirectToAction("Info", "Tenants");
+            }
             return Page();
         }
 
@@ -44,7 +48,11 @@ namespace CarRental.Pages.Tenants
             RentalApproveRequest.UserId = User.GetId();
             if(RentalApproveRequest.Files == null || RentalApproveRequest.Files.Count < 1)
             {
-                ModelState.AddModelError("File", "Задължително трябва да качите снимки");
+                ModelState.AddModelError("File", "Задължително трябва да качите снимки!");
+            }
+            else if(RentalApproveRequest.Files.Count > 2)
+            {
+                ModelState.AddModelError("File", "Позволеният лимит на снимките е 2!");
             }
             if (!ModelState.IsValid)
             {

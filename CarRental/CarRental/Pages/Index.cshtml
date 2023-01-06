@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Начало";
 }
 @section Styles{
     <link rel="stylesheet" href="~/css/SearchPage.css" />
@@ -12,6 +12,12 @@
     <div class="color-overlay"></div>
     <div class="wrapper col-sm-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
         <form method="post">
+        <div class="logo">
+            <img src="~/lib/Images/logo.png" alt="">
+        </div>
+        <div class="text-center mt-4 name">
+            <h2>Намерете подходящия автомобил</h2>
+        </div>
         <div class="form-group parent">
                 <label asp-for="SearchTerm.SearchByMake" class="control-label">Марка:</label>
                 <select asp-for="SearchTerm.SearchByMake" id="make-select" class ="form-control" asp-items="ViewBag.MakeId"><option value=0></option></select>
@@ -19,7 +25,7 @@
         </div>
         <div class="form-group parent">
                 <label asp-for="SearchTerm.SearchByModel" class="control-label">Модел:</label>
-                <select asp-for="SearchTerm.SearchByModel" id="model-select" class ="form-control" disabled><option value=0></option></select>
+                <select asp-for="SearchTerm.SearchByModel" id="model-select" class ="form-control" disabled asp-items="ViewBag.Model"><option value=0></option></select>
                 <span asp-validation-for="SearchTerm.SearchByModel" class="text-danger"></span>
         </div>
         <div class="form-group parent">
@@ -54,6 +60,10 @@
                     <input asp-for="SearchTerm.DateToReturn" id="return-data-field" class ="form-control align-right" disabled />
                     <span asp-validation-for="SearchTerm.DateToReturn" class="text-danger"></span>
                 </div>
+                <div class="text-danger">
+                    @Html.ValidationMessage("PassedDate")
+                    @Html.ValidationMessage("EndDateFirst")
+                </div>
         </div>
         <div class="form-group parent">
                 <label class="control-label display-block">Дневна цена</label>
@@ -69,16 +79,16 @@
                 </div>
         </div>
         <div class="form-group parent">
-            <label class="control-label display-block">Разход на гориво на 100км</label>
+            <label class="control-label display-block">Година на производство</label>
             <div class="child">
-                <label asp-for="SearchTerm.FuelConsumptionMin" class="control-label">от:</label>
-                <input asp-for="SearchTerm.FuelConsumptionMin" class ="form-control align-right" />
-                <span asp-validation-for="SearchTerm.FuelConsumptionMin" class="text-danger"></span>
+                <label asp-for="SearchTerm.YearFrom" class="control-label">от:</label>
+                <input asp-for="SearchTerm.YearFrom" class ="form-control align-right" />
+                <span asp-validation-for="SearchTerm.YearFrom" class="text-danger"></span>
             </div>
             <div class="child">
-                <label asp-for="SearchTerm.FuelConsumptionMax" class="control-label">до:</label>
-                <input asp-for="SearchTerm.FuelConsumptionMax" class ="form-control align-right" />
-                <span asp-validation-for="SearchTerm.FuelConsumptionMax" class="text-danger"></span>
+                <label asp-for="SearchTerm.YearTo" class="control-label">до:</label>
+                <input asp-for="SearchTerm.YearTo" class ="form-control align-right" />
+                <span asp-validation-for="SearchTerm.YearTo" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group parent">
@@ -101,6 +111,9 @@
 </div>
 @section Scripts {
      <script src="/js/FillModels.js"></script>
+     <script src="/js/RemoveDisabledOnLoadForModel.js"></script>
+     <script src="/js/RemoveDisabledOnLoadForData.js"></script>
+     <script src="/js/AddToSelectList.js"></script>
      <script src="~/js/RemoveDisabledFromField.js"></script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

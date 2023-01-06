@@ -23,7 +23,9 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">CarRental</a>
+                <a class="navbar-brand" asp-page="/Index">
+                    <img src="~/lib/Images/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -53,13 +55,13 @@
                             @if (User.IsInRole(DealerRoleName) == false)
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-light" asp-controller="Dealers" asp-action="Create" asp-route-type="tenant">Стани дилър</a>
+                                    <a class="nav-link text-light" asp-controller="Dealers" asp-action="Create">Стани дилър</a>
                                 </li>
                             }
                             @if (!user.CanRent)
                             {
                                <li class="nav-item">
-                                   <a class="nav-link text-light" asp-controller="Tenants" asp-action="Create" asp-route-type="tenant">Заявка за наемател</a>
+                                   <a class="nav-link text-light" asp-controller="Tenants" asp-action="Create">Заявка за наемател</a>
                                </li>
                             }
                         }

@@ -31,6 +31,10 @@ namespace CarRental.Servces.CarService
             {
                 ms.AddModelError("Make", "Полето е задължително!");
             }
+            if(!context.Models.Any(x=> x.Id == int.Parse(car.Model)))
+            {
+                ms.AddModelError("Model", "Полето е задължително!");
+            }
             if(!context.Engines.Any(x=> x.Id == car.EngineId))
             {
                 ms.AddModelError("Engine", "Полето е задължително!");
@@ -60,6 +64,16 @@ namespace CarRental.Servces.CarService
                 cars = FilterCarsBySearchTerm(cars, model.SearchTerm);
             }
 
+            cars = model.Sorting switch
+            {
+                Sorting.Default => cars,
+                Sorting.YearAcs => cars.OrderBy(x => x.Year).ToList(),
+                Sorting.YearDesc => cars.OrderByDescending(x => x.Year).ToList(),
+                Sorting.PriceAsc => cars.OrderBy(x => x.PricePerDay).ToList(),
+                Sorting.PriceDesc => cars.OrderByDescending(x => x.PricePerDay).ToList(),
+                _ => cars
+            };
+
             totalCars = cars.Count;
 
             var maxPage = CalcMaxPage(totalCars, model.CarsPerPage);
@@ -86,6 +100,7 @@ namespace CarRental.Servces.CarService
 
             return queryModel;
         }
+
 
         private IList<Car> FilterCarsBySearchTerm(IList<Car> cars, SearchTerm searchTerm)
         {
@@ -115,35 +130,47 @@ namespace CarRental.Servces.CarService
             }
             if (searchTerm.PricePerDayMin != null || searchTerm.PricePerDayMax != null)
             {
-                if(searchTerm.PricePerDayMin != null)
+                if (searchTerm.PricePerDayMin != null && searchTerm.PricePerDayMax != null)
+                {
+                    cars = cars.Where(x => x.PricePerDay >= searchTerm.PricePerDayMin && x.PricePerDay <= searchTerm.PricePerDayMax).ToList();
+                }
+                else if(searchTerm.PricePerDayMin != null && searchTerm.PricePerDayMax == null)
                 {
                     cars = cars.Where(x => x.PricePerDay >= searchTerm.PricePerDayMin).ToList();
                 }
-                if (searchTerm.PricePerDayMax != null)
+                else if (searchTerm.PricePerDayMax == null && searchTerm.PricePerDayMax != null)
                 {
                     cars = cars.Where(x => x.PricePerDay <= searchTerm.PricePerDayMax).ToList();
                 }
             }
             if(searchTerm.HorsePowerMin != null || searchTerm.HorsePowerMax != null)
             {
-                if(searchTerm.HorsePowerMin != null)
+                if(searchTerm.HorsePowerMin != null && searchTerm.HorsePowerMax != null)
+                {
+                    cars = cars.Where(x => x.HorsePower >= searchTerm.HorsePowerMin && x.HorsePower <= searchTerm.HorsePowerMax).ToList();
+                }
+                else if(searchTerm.HorsePowerMin != null && searchTerm.HorsePowerMax == null)
                 {
                     cars = cars.Where(x => x.HorsePower >= searchTerm.HorsePowerMin).ToList();
                 }
-                if(searchTerm.HorsePowerMax != null)
+                else if(searchTerm.HorsePowerMin == null && searchTerm.HorsePowerMax != null)
                 {
                     cars = cars.Where(x => x.HorsePower <= searchTerm.HorsePowerMax).ToList();
                 }
             }
-            if (searchTerm.FuelConsumptionMin != null || searchTerm.FuelConsumptionMax != null)
+            if (searchTerm.YearFrom != null || searchTerm.YearTo != null)
             {
-                if (searchTerm.FuelConsumptionMin != null)
+                if(searchTerm.YearFrom != null && searchTerm.YearTo != null)
                 {
-                    cars = cars.Where(x => x.FuelConsumption >= searchTerm.FuelConsumptionMin).ToList();
+                    cars = cars.Where(x => x.Year >= searchTerm.YearFrom && x.Year <= searchTerm.YearTo).ToList();
                 }
-                if (searchTerm.FuelConsumptionMax != null)
+                if (searchTerm.YearFrom != null || searchTerm.YearTo == null)
                 {
-                    cars = cars.Where(x => x.FuelConsumption <= searchTerm.FuelConsumptionMax).ToList();
+                    cars = cars.Where(x => x.Year >= searchTerm.YearFrom).ToList();
+                }
+                if (searchTerm.YearFrom == null || searchTerm.YearTo != null)
+                {
+                    cars = cars.Where(x => x.Year <= searchTerm.YearTo).ToList();
                 }
             }
             if (searchTerm.DateToTake != null || searchTerm.DateToReturn != null)

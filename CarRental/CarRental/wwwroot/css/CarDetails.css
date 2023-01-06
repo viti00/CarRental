@@ -11,6 +11,16 @@
     height: 550px!important;
 }
 
+
+.btn-custom:hover {
+    color: #ffffff !important;
+    background-color: #f50a0a !important;
+}
+.btn-rent:hover {
+    color: #ffffff !important;
+    background-color: #52b726 !important;
+}
+
 .results {
     max-height: 200px;
     overflow-y: auto;

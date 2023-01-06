@@ -27,6 +27,15 @@ namespace CarRental.Pages.Reservations
 
         public IActionResult OnGet()
         {
+            var user = _context.Users.FirstOrDefault(x => x.Id == User.GetId());
+            if (!user.CanRent && !_context.RentalApproveRequests.Any(x=> x.UserId == user.Id))
+            {
+                return RedirectToAction("Create", "Tenants");
+            }
+            else if(!user.CanRent && _context.RentalApproveRequests.Any(x => x.UserId == user.Id))
+            {
+                return RedirectToAction("Info", "Tenants");
+            }
             return Page();
         }
 
