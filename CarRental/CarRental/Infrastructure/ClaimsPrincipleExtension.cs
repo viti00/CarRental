@@ -1,6 +1,6 @@
 ﻿using CarRental.Data;
 using System.Security.Claims;
-using static CarRental.WebConstants;
+using static CarRental.Global.WebConstants;
 namespace CarRental.Infrastructure
 {
     public static class ClaimsPrincipleExtension

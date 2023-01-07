@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CarRental.Data;
 using CarRental.Data.Models;
-using CarRental.Servces.DealerService;
+using CarRental.Services.DealerService;
 using Microsoft.AspNetCore.Authorization;
-using static CarRental.WebConstants;
+using static CarRental.Global.WebConstants;
 
 namespace CarRental.Areas.Admin.Pages.Dealers
 {

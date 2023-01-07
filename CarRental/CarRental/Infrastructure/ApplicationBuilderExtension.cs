@@ -2,7 +2,7 @@
 using CarRental.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using static CarRental.WebConstants;
+using static CarRental.Global.WebConstants;
 
 namespace CarRental.Infrastructure
 {

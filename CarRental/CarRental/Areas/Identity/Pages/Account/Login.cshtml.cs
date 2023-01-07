@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using static CarRental.WebConstants;
+using static CarRental.Global.WebConstants;
 
 namespace CarRental.Areas.Identity.Pages.Account
 {

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using CarRental.Data;
 using CarRental.Data.Models;
-using CarRental.Servces.CarService;
+using CarRental.Services.CarService;
 using CarRental.Infrastructure;
 
 namespace CarRental.Pages.Cars

@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CarRental.Data;
 using CarRental.Data.Models;
-using CarRental.Servces.CarService;
+using CarRental.Services.CarService;
 using CarRental.Infrastructure;
-using static CarRental.WebConstants;
+using static CarRental.Global.WebConstants;
 
 namespace CarRental.Pages.Cars
 {

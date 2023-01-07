@@ -1,5 +1,5 @@
 ﻿using CarRental.Data.Models;
-using CarRental.Servces.CarService;
+using CarRental.Services.CarService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarRental.Pages

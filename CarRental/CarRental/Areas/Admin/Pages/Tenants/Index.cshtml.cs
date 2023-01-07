@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using CarRental.Data;
 using CarRental.Data.Models;
 using System.ComponentModel.DataAnnotations;
-using CarRental.Servces.TenantsService;
+using CarRental.Services.TenantsService;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
-using static CarRental.WebConstants;
+using static CarRental.Global.WebConstants;
 
 namespace CarRental.Areas.Admin.Pages.Tenants
 {

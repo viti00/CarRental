@@ -9,7 +9,7 @@ using CarRental.Data;
 using CarRental.Data.Models;
 using CarRental.Infrastructure;
 using Microsoft.AspNetCore.Authorization;
-using static CarRental.WebConstants;
+using static CarRental.Global.WebConstants;
 
 namespace CarRental.Pages.Dealers
 {

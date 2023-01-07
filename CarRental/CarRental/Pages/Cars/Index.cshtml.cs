@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CarRental.Data.Models;
-using CarRental.ViewModels;
-using CarRental.Servces.CarService;
+using CarRental.Services.CarService;
 using static CarRental.Global.GlobalVariables;
-using Microsoft.AspNetCore.Mvc;
+using CarRental.ViewModels;
 
 namespace CarRental.Pages.Cars
 {

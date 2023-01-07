@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using CarRental.Data;
 using CarRental.Data.Models;
 using CarRental.Infrastructure;
-using CarRental.Servces.TenantsService;
+using CarRental.Services.TenantsService;
 using Microsoft.AspNetCore.Authorization;
 
 namespace CarRental.Pages.Tenants

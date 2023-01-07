@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CarRental.Data;
 using CarRental.Data.Models;
 using CarRental.Infrastructure;
-using CarRental.Servces.CarService;
+using CarRental.Services.CarService;
 using Microsoft.AspNetCore.Authorization;
 
 namespace CarRental.Pages.Reservations

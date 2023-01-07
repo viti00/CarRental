@@ -1,9 +1,9 @@
 using CarRental.Data;
 using CarRental.Data.Models;
 using CarRental.Infrastructure;
-using CarRental.Servces.CarService;
-using CarRental.Servces.DealerService;
-using CarRental.Servces.TenantsService;
+using CarRental.Services.CarService;
+using CarRental.Services.DealerService;
+using CarRental.Services.TenantsService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
