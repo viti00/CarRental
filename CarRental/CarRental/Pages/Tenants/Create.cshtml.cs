@@ -68,7 +68,7 @@ namespace CarRental.Pages.Tenants
             _context.RentalApproveRequests.Add(RentalApproveRequest);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToAction("Info", "Tenants");
         }
     }
 }

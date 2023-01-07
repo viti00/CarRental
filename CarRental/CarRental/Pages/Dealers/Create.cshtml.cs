@@ -51,7 +51,7 @@ namespace CarRental.Pages.Dealers
             _context.DealerRequests.Add(DealerRequest);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToAction("Info", "Dealers");
         }
     }
 }
