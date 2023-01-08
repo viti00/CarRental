@@ -39,17 +39,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Car.HorsePower" class="control-label">Конски сили:<span class="text-danger">*</span></label>
-                <input asp-for="Car.HorsePower" class="form-control" />
+                <input asp-for="Car.HorsePower" id="power" class="form-control" />
                 <span asp-validation-for="Car.HorsePower" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Car.FuelConsumption" class="control-label">Разход на гориво(100км):<span class="text-danger">*</span></label>
-                <input asp-for="Car.FuelConsumption" class="form-control" />
+                <input asp-for="Car.FuelConsumption" id="fuel" class="form-control" />
                 <span asp-validation-for="Car.FuelConsumption" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Car.PricePerDay" class="control-label">Дневна цена:<span class="text-danger">*</span></label>
-                <input asp-for="Car.PricePerDay" class="form-control" />
+                <input asp-for="Car.PricePerDay" id="price" class="form-control" />
                 <span asp-validation-for="Car.PricePerDay" class="text-danger"></span>
             </div>  
             <div class="form-group">
@@ -109,6 +109,7 @@
 </div>
 
 @section Scripts {
+    <script src="/js/ReplaceSymbol.js"></script>
     <script src="/js/FillModels.js"></script>
     <script src="/js/RemoveDisabledOnLoadForModel.js"></script>
     <script src="/js/AddToSelectList.js"></script>

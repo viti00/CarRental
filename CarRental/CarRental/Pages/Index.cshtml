@@ -69,12 +69,12 @@
                 <label class="control-label display-block">Дневна цена</label>
                 <div class="child">
                     <label asp-for="SearchTerm.PricePerDayMin" class="control-label">от:</label>
-                    <input asp-for="SearchTerm.PricePerDayMin" class ="form-control align-right"/>
+                    <input asp-for="SearchTerm.PricePerDayMin" id="price" class ="form-control align-right"/>
                     <span asp-validation-for="SearchTerm.PricePerDayMin" class="text-danger"></span>
                 </div>
                 <div class="child">
                     <label asp-for="SearchTerm.PricePerDayMax" class="control-label">до:</label>
-                    <input asp-for="SearchTerm.PricePerDayMax" class ="form-control align-right" />
+                    <input asp-for="SearchTerm.PricePerDayMax" id="price-max" class ="form-control align-right" />
                     <span asp-validation-for="SearchTerm.PricePerDayMax" class="text-danger"></span>
                 </div>
         </div>
@@ -95,12 +95,12 @@
             <label asp-for="SearchTerm.HorsePowerMin" class="control-label display-block">Конски сили</label>
             <div class="child">
                 <label asp-for="SearchTerm.HorsePowerMin" class="control-label">от:</label>
-                <input asp-for="SearchTerm.HorsePowerMin" class ="form-control align-right" />
+                <input asp-for="SearchTerm.HorsePowerMin" id="power" class ="form-control align-right" />
                 <span asp-validation-for="SearchTerm.HorsePowerMin" class="text-danger"></span>
             </div>
             <div class="child">
                 <label asp-for="SearchTerm.HorsePowerMax" class="control-label">до:</label>
-                <input asp-for="SearchTerm.HorsePowerMax" class ="form-control align-right"/>
+                <input asp-for="SearchTerm.HorsePowerMax" id="power-max" class ="form-control align-right"/>
                 <span asp-validation-for="SearchTerm.HorsePowerMax" class="text-danger"></span>
             </div>
                 
@@ -111,6 +111,7 @@
 </div>
 @section Scripts {
      <script src="/js/FillModels.js"></script>
+     <script src="/js/ReplaceSymbol.js"></script>
      <script src="/js/RemoveDisabledOnLoadForModel.js"></script>
      <script src="/js/RemoveDisabledOnLoadForData.js"></script>
      <script src="/js/AddToSelectList.js"></script>

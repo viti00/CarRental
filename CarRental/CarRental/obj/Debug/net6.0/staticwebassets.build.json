@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Qh2g9QbSEexdhIY2EoeCDPkqIYhJfr7Dd0AHJ30hvAE=",
+  "Hash": "riPqJm9iNeMN1R9UJBgOuNJfnQw1cA0YSnOkIRSIE3c=",
   "Source": "CarRental",
   "BasePath": "_content/CarRental",
   "Mode": "Default",
@@ -1341,6 +1341,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\RemoveDisabledOnLoadForModel.js"
+    },
+    {
+      "Identity": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\ReplaceSymbol.js",
+      "SourceId": "CarRental",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\",
+      "BasePath": "_content/CarRental",
+      "RelativePath": "js/ReplaceSymbol.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ReplaceSymbol.js"
     },
     {
       "Identity": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\site.js",

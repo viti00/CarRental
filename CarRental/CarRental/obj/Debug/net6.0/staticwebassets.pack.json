@@ -61,6 +61,10 @@
       "PackagePath": "staticwebassets\\js\\RemoveDisabledOnLoadForModel.js"
     },
     {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\ReplaceSymbol.js",
+      "PackagePath": "staticwebassets\\js\\ReplaceSymbol.js"
+    },
+    {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\SortOnChange.js",
       "PackagePath": "staticwebassets\\js\\SortOnChange.js"
     },
