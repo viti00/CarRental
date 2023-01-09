@@ -24,5 +24,11 @@ namespace CarRental.Services.CarService
         public List<ReservedCar> GetMyReservations(string userId);
 
         public bool DeleteCar(string carId, string userId, bool isAdministrator);
+
+        public void DeletePhotoById(int photoId);
+
+        public void DeleteAllPhotos(string carId);
+
+        public List<CarPhoto> GetAllPhotosForCar(string carId);
     }
 }

@@ -1,0 +1,35 @@
+﻿@using CarRental.Data.Models;
+
+@model Car
+    
+    <div class="buttons-container">
+        <a onclick="Hide()" class="btn-danger a-custom">X</a>
+    @if (Model.Photos.Count > 0)
+    {
+        <a id="delete-all-btn" car-id="@Model.Id" onclick="RemoveAll()" class="btn-danger float-end delete-all">Изтрий всички</a>
+    }
+    </div>
+
+   <div class="table-section">
+       <table class="table table-hover table-dark">
+           <thead>
+               <tr>
+                   <th scope="col">Име на файл</th>
+                   <th scope="col">Файл</th>
+                   <th scope="col"></th>
+               </tr>
+           </thead>
+           <tbody id="table">
+   @foreach (var photo in Model.Photos)
+   {
+               <tr data-id="@photo.Id">
+                  <td style="font-size: 12px">@photo.Description</td>
+                  <td><img class="img" src="@String.Format("data:image/gif;base64,{0}", Convert.ToBase64String(photo.Bytes))"></td>
+                  <td>
+                      <button onclick="Remove(@photo.Id)" title="Изтрий" class="btn-form btn-danger"><i class="far fa-trash-alt"></i></button>
+                  </td>
+               </tr>
+   }
+           </tbody>
+       </table>
+   </div>

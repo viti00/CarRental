@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model CarRental.Pages.Cars.EditModel
 
 @{
@@ -8,6 +8,7 @@
 
 @section Styles{
         <link rel="stylesheet" href="~/css/CreateAndEditPages.css"/>
+        <link rel="stylesheet" href="~/css/ImagesForEdit.css" />
 }
 
 <div class="section">
@@ -91,21 +92,38 @@
                     @Html.ValidationMessage("Transmission")
                 </div>
             </div>
+            @if(Model.Car.Photos.Count > 0)
+            {
+                <div class="form-group">
+                    <a class="text-dark" id="edit-image">Старите снимки редактирайте от тук</a>
+                </div>
+            }
+            <div class="img-editor form-group display-none">
+                <partial name="_ImagesForEdit" model="Model.Car" />
+            </div>
             <div class="form-group">
                 <label asp-for="Car.Files">Снимки на автомобила може да качите от тук:</label>
                 <input asp-for="Car.Files"  name="files" class="form-control" type="file" multiple/>
                 <span asp-validation-for="Car.Files" class="small text-danger"></span>
+                <div class="text-danger">
+                    @Html.ValidationMessage("Files")
+                </div>
             </div>
-            <button type="submit" class="btn custom-btn">@ViewBag.ButtonName</button>
+            <div>
+                <button type="submit" class="btn custom-btn">@ViewBag.ButtonName</button>
+            </div>
         </form>
     </div>
 </div>
 
 @section Scripts {
         <script src="/js/ReplaceSymbol.js"></script>
-        <script src="/js/FillModelsOnLoad.js"></script>
+        <script src="/js/RemovePhoto.js"></script>
+        <script src="/js/RemoveAll.js"></script>
+        <script src="/js/ShowOrHideImageEditor.js"></script>
         <script src="/js/FillModels.js"></script>
         <script src="/js/AddToSelectList.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

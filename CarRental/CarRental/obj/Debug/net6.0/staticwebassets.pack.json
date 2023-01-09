@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\DealerAndTenantsIndex.css"
     },
     {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\ImagesForEdit.css",
+      "PackagePath": "staticwebassets\\css\\ImagesForEdit.css"
+    },
+    {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\css\\SearchPage.css",
       "PackagePath": "staticwebassets\\css\\SearchPage.css"
     },
@@ -49,6 +53,10 @@
       "PackagePath": "staticwebassets\\js\\PreviousAndNextPhoto.js"
     },
     {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\RemoveAll.js",
+      "PackagePath": "staticwebassets\\js\\RemoveAll.js"
+    },
+    {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\RemoveDisabledFromField.js",
       "PackagePath": "staticwebassets\\js\\RemoveDisabledFromField.js"
     },
@@ -61,8 +69,16 @@
       "PackagePath": "staticwebassets\\js\\RemoveDisabledOnLoadForModel.js"
     },
     {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\RemovePhoto.js",
+      "PackagePath": "staticwebassets\\js\\RemovePhoto.js"
+    },
+    {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\ReplaceSymbol.js",
       "PackagePath": "staticwebassets\\js\\ReplaceSymbol.js"
+    },
+    {
+      "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\ShowOrHideImageEditor.js",
+      "PackagePath": "staticwebassets\\js\\ShowOrHideImageEditor.js"
     },
     {
       "Id": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\wwwroot\\js\\SortOnChange.js",

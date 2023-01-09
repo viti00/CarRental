@@ -4,6 +4,7 @@ using CarRental.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 
 namespace CarRental.Services.CarService
 {
@@ -32,11 +33,22 @@ namespace CarRental.Services.CarService
             {
                 ms.AddModelError("Make", "Полето е задължително!");
             }
-            if(!context.Models.Any(x=> x.Id == int.Parse(car.Model)))
+            if (car.Model.All(char.IsDigit))
             {
-                ms.AddModelError("Model", "Полето е задължително!");
+                if (!context.Models.Any(x => x.Id == int.Parse(car.Model)))
+                {
+                    ms.AddModelError("Model", "Полето е задължително!");
+                }
             }
-            if(!context.Engines.Any(x=> x.Id == car.EngineId))
+            else
+            {
+                if (!context.Models.Any(x => x.Name == car.Model))
+                {
+                    ms.AddModelError("Model", "Полето е задължително!");
+                }
+            }
+
+            if (!context.Engines.Any(x=> x.Id == car.EngineId))
             {
                 ms.AddModelError("Engine", "Полето е задължително!");
             }
@@ -298,7 +310,7 @@ namespace CarRental.Services.CarService
                 return false;
             }
 
-            if(!isAdministrator || user.Id != car.CreatorId)
+            if(user.Id != car.CreatorId && !isAdministrator)
             {
                 return false;
             }
@@ -414,5 +426,23 @@ namespace CarRental.Services.CarService
 
         private Car GetCarById(string carId)
             => context.Cars.FirstOrDefault(x => x.Id == carId);
+
+        public void DeletePhotoById(int photoId)
+        {
+            var photo = context.Photos.FirstOrDefault(x => x.Id == photoId);
+            context.Photos.Remove(photo);
+            context.SaveChanges();
+        }
+
+        public void DeleteAllPhotos(string carId)
+        {
+            var photos = context.Photos.Where(x => x.CarId == carId).ToList();
+
+            context.Photos.RemoveRange(photos);
+            context.SaveChanges();
+        }
+
+        public List<CarPhoto> GetAllPhotosForCar(string carId)
+            => context.Photos.Where(x => x.CarId == carId).ToList();
     }
 }
