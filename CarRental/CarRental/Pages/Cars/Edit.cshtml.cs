@@ -35,7 +35,7 @@ namespace CarRental.Pages.Cars
             {
                 return NotFound();
             }
-            if(car.CreatorId != User.GetId())
+            if(car.CreatorId != User.GetId() && !User.IsAdministrator())
             {
                 return BadRequest();
             }

@@ -255,9 +255,7 @@ namespace CarRental.Services.CarService
             {
                 var reservations = context
                                    .ReservedCars
-                                   .Where(x => x.CarId == car.Id 
-                                          && x.StartDate.Year == startDate.Value.Year
-                                          || x.EndDate.Year == endDate.Value.Year)
+                                   .Where(x => x.CarId == car.Id)
                                    .ToList();
                 if(reservations.Count > 0)
                 {
