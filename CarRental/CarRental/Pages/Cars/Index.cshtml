@@ -17,7 +17,7 @@
         <partial name="_SearchSectionPartial" model="Model.QueryModel"/>
         <div class="row res-container">
             <div class="row post-cards">
-                @if (Model.Car.Count() == 0 && Model.QueryModel.SearchTerm != null)
+                @if (Model.Car.Count() == 0 || Model.QueryModel.SearchTerm != null)
                 {
                         <div class="no-post-container">
                             <h2>Няма коли по зададените критерии</h2>

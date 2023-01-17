@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vkUn5kDbWCAjQXGvbB1R1sSjdi3/NaXxrzJrDDw6WEaGqIEqjnwlUm2QUHuZUh4NQ7+jjpUcZM7VEVPN/hRceA==",
+  "dgSpecHash": "2GlCC+KBjtWTWE64MN1q67TjGNcBjkm1rrf5dQ3BMzYcxgfNSM5K4M0hqQDp0vBoPMo22Tq4GEVGSHkF+Xf7CA==",
   "success": true,
-  "projectFilePath": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\CarRental.csproj",
+  "projectFilePath": "E:\\Важни данни\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental\\CarRental.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CharovPC\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\CharovPC\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

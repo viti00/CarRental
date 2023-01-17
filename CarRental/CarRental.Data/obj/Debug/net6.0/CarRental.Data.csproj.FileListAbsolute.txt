@@ -10,3 +10,15 @@ E:\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\obj\Debug\net6.
 E:\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\obj\Debug\net6.0\refint\CarRental.Data.dll
 E:\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\obj\Debug\net6.0\CarRental.Data.pdb
 E:\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\obj\Debug\net6.0\ref\CarRental.Data.dll
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\bin\Debug\net6.0\CarRental.Data.deps.json
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\bin\Debug\net6.0\CarRental.Data.dll
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\bin\Debug\net6.0\CarRental.Data.pdb
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\obj\Debug\net6.0\CarRental.Data.csproj.AssemblyReference.cache
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\obj\Debug\net6.0\CarRental.Data.GeneratedMSBuildEditorConfig.editorconfig
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\obj\Debug\net6.0\CarRental.Data.AssemblyInfoInputs.cache
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\obj\Debug\net6.0\CarRental.Data.AssemblyInfo.cs
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\obj\Debug\net6.0\CarRental.Data.csproj.CoreCompileInputs.cache
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\obj\Debug\net6.0\CarRental.Data.dll
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\obj\Debug\net6.0\refint\CarRental.Data.dll
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\obj\Debug\net6.0\CarRental.Data.pdb
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Data\obj\Debug\net6.0\ref\CarRental.Data.dll

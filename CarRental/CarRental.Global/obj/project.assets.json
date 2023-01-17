@@ -5719,24 +5719,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\CharovPC\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\CharovPC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental.Global\\CarRental.Global.csproj",
+      "projectUniqueName": "E:\\Важни данни\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental.Global\\CarRental.Global.csproj",
       "projectName": "CarRental.Global",
-      "projectPath": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental.Global\\CarRental.Global.csproj",
+      "projectPath": "E:\\Важни данни\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental.Global\\CarRental.Global.csproj",
       "packagesPath": "C:\\Users\\CharovPC\\.nuget\\packages\\",
-      "outputPath": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental.Global\\obj\\",
+      "outputPath": "E:\\Важни данни\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental.Global\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\CharovPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5744,14 +5739,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://www.nuget.org/api/v2/": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\ViewModels\\CarRental.ViewModels.csproj": {
-              "projectPath": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\ViewModels\\CarRental.ViewModels.csproj"
+            "E:\\Важни данни\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\ViewModels\\CarRental.ViewModels.csproj": {
+              "projectPath": "E:\\Важни данни\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\ViewModels\\CarRental.ViewModels.csproj"
             }
           }
         }
@@ -5781,7 +5776,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

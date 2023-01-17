@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9rBhyJa6Fvpkys5LAZue7UBlh2+2A45k6MbulpH6bijH+5ldQtXyyp7DFzbVyRGHLBEdxe9ppuuRmpXDAvaUrA==",
+  "dgSpecHash": "H5OXFkAotaRTGSCt/EExQv9GdI7ypNiy8zneySuVjclx55UpshnNu3PawwRKZQMQBBL+MDx1KQCCTeEdRzekSw==",
   "success": true,
-  "projectFilePath": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\ViewModels\\CarRental.ViewModels.csproj",
+  "projectFilePath": "E:\\Важни данни\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\ViewModels\\CarRental.ViewModels.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CharovPC\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\CharovPC\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

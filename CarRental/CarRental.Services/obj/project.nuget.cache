@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jhYxH1T/SA9JoN0H6m+vAYhQiZPOl8kAKKSmwP6WT7AJwK+1uOahjuS7Jm/OaTM5Sd2U1ovtX38d/pOMlnMAGg==",
+  "dgSpecHash": "ORPA9tCB4TzEzDmDpyLSFU3lrW9A0CrxzH+Xn55gGF4Wwpb980FYhnsBKRoXYdVzz+f0nbg1YyvxasdAniWsHA==",
   "success": true,
-  "projectFilePath": "E:\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental.Services\\CarRental.Services.csproj",
+  "projectFilePath": "E:\\Важни данни\\Coding\\C# coding\\CarRental\\CarRental\\CarRental\\CarRental.Services\\CarRental.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CharovPC\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.9\\microsoft.aspnet.mvc.5.2.9.nupkg.sha512",
     "C:\\Users\\CharovPC\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.9\\microsoft.aspnet.razor.3.2.9.nupkg.sha512",

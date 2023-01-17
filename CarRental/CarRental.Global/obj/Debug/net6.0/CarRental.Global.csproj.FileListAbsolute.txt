@@ -15,3 +15,20 @@ E:\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net
 E:\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net6.0\refint\CarRental.Global.dll
 E:\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net6.0\CarRental.Global.pdb
 E:\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net6.0\ref\CarRental.Global.dll
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\bin\Debug\net6.0\CarRental.Global.deps.json
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\bin\Debug\net6.0\CarRental.Global.dll
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\bin\Debug\net6.0\CarRental.Global.pdb
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\bin\Debug\net6.0\CarRental.Data.dll
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\bin\Debug\net6.0\CarRental.ViewModels.dll
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\bin\Debug\net6.0\CarRental.ViewModels.pdb
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\bin\Debug\net6.0\CarRental.Data.pdb
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net6.0\CarRental.Global.csproj.AssemblyReference.cache
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net6.0\CarRental.Global.GeneratedMSBuildEditorConfig.editorconfig
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net6.0\CarRental.Global.AssemblyInfoInputs.cache
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net6.0\CarRental.Global.AssemblyInfo.cs
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net6.0\CarRental.Global.csproj.CoreCompileInputs.cache
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net6.0\CarRental.Global.csproj.CopyComplete
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net6.0\CarRental.Global.dll
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net6.0\refint\CarRental.Global.dll
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net6.0\CarRental.Global.pdb
+E:\Важни данни\Coding\C# coding\CarRental\CarRental\CarRental\CarRental.Global\obj\Debug\net6.0\ref\CarRental.Global.dll
