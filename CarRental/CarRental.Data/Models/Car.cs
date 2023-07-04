@@ -6,6 +6,7 @@ using static CarRental.Data.ModelsConstnants;
 
 namespace CarRental.Data.Models
 {
+    [Table("Cars", Schema = "19118076")]
     public class Car
     {
         public string Id { get; set; } = Guid.NewGuid().ToString();
@@ -76,5 +77,7 @@ namespace CarRental.Data.Models
         [FromForm]
         [NotMapped]
         public IFormFileCollection? Files { get; set; }
+
+        public DateTime LastModified_19118076 { get; set; }
     }
 }

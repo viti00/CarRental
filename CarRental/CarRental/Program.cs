@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<CarRentalDbContext>(options =>
-    options.UseSqlServer(connectionString));
+   options.UseSqlServer(connectionString, b => b.MigrationsAssembly("CarRental")));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>

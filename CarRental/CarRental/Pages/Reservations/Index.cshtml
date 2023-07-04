@@ -18,11 +18,18 @@
     {
            <div class="no-customer">
                 <h2 class="text-light">Все още няма резервации!</h2>
-           </div>
+        </div>
     }
     else
     {
-        <div class="table-section">
+        @if (ViewBag.type == "dealer")
+        {
+            <div class="text-center" style="margin-bottom: 40px; z-index: 99; position: absolute; top: 10%; left: 50%; transform: translate(-50%, -50%);">
+                <a asp-page-handler="export" class="export-button">Експорт</a>
+            </div>
+        }
+        
+        <div class="table-section" style="margin-top: 100px;">
           <table class="table table-hover table-dark">
                   <thead>
                       <tr>
@@ -39,6 +46,7 @@
                           <th scope="col">Автомобил</th>
                           <th scope="col">Период на наем</th>
                           <th scope="col">Обща сума (лв.)</th>
+                          <th scope="col">Платена</th>
                           <th scope="col"></th>
                       </tr>
                   </thead>
@@ -61,8 +69,15 @@
                            <td>@(reservation.Car.Make.Name + " " + reservation.Car.Model + " " + reservation.Car.Year)</td>
                            <td>@(reservation.StartDate.ToString("MM/dd/yyyy") + "-" + reservation.EndDate.ToString("MM/dd/yyyy"))</td>
                            <td>@((reservation.EndDate - reservation.StartDate).TotalDays * reservation.Car.PricePerDay)</td>
+                           <td>@(reservation.IsPaid == true?"Да":"Не")</td>
                            <td>
-                              <form asp-page-handler="delete" method="post" asp-route-id="@reservation.Id">
+                                @if(ViewBag.type == "tenant" && reservation.IsPaid == false)
+                                {
+                                    <a asp-page="PaymentModel" asp-route-id="@reservation.Id" title="Плати сега" class="btn btn-success">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </a>
+                                }
+                                <form asp-page-handler="delete" method="post" asp-route-id="@reservation.Id">
                                    <button title="Откажи" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                               </form>
                            </td>
@@ -79,48 +94,3 @@
                 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 }
 
-@*<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ReservedCar[0].Car)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReservedCar[0].StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReservedCar[0].EndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReservedCar[0].IsActive)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.ReservedCar) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Car.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>*@

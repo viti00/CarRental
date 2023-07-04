@@ -72,12 +72,30 @@ namespace CarRental.Pages.Cars
                 return Page();
             }
             Car.Photos.AddRange(carService.CreatePhotos(Car.Files));
-
+            Car.LastModified_19118076 = DateTime.Now;
+            if(files != null && files.Count > 0)
+            {
+                var log_photos = new log_19118076
+                {
+                    Table = "Photos",
+                    Action = "Insert",
+                    ActionDate = DateTime.Now
+                };
+                _context.log_19118076.Add(log_photos);
+            }
+            
             _context.Attach(Car).State = EntityState.Modified;
 
 
             try
             {
+                var log_car = new log_19118076
+                {
+                    Table = "Cars",
+                    Action = "Update",
+                    ActionDate = DateTime.Now
+                };
+                _context.log_19118076.Add(log_car);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

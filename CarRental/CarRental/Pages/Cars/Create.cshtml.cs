@@ -55,6 +55,23 @@ namespace CarRental.Pages.Cars
             }
             Car.Model = carService.GetModelById(int.Parse(Car.Model)).Name;
             Car.Photos = carService.CreatePhotos(Car.Files);
+            Car.LastModified_19118076 = DateTime.Now;
+
+            var log_photos = new log_19118076
+            {
+                Table = "Photos",
+                Action = "Insert",
+                ActionDate = DateTime.Now
+            };
+            _context.log_19118076.Add(log_photos);
+
+            var log_car = new log_19118076
+            {
+                Table = "Cars",
+                Action = "Insert",
+                ActionDate = DateTime.Now
+            };
+            _context.log_19118076.Add(log_car);
 
             _context.Cars.Add(Car);
             await _context.SaveChangesAsync();

@@ -1,6 +1,8 @@
 ﻿using CarRental.Data;
 using CarRental.Data.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 using static CarRental.Global.WebConstants;
 
 namespace CarRental.Services.DealerService
@@ -38,8 +40,25 @@ namespace CarRental.Services.DealerService
                 user.FirstName = dealerRequest.FirstName;
                 user.LastName = dealerRequest.LastName;
                 user.PhoneNumber = dealerRequest.PhoneNumber;
+                user.LastModified_19118076 = DateTime.Now;
 
-                context.DealerRequests.Remove(dealerRequest);
+                var log_user = new log_19118076
+                {
+                    Table = "Users",
+                    Action = "Update",
+                    ActionDate = DateTime.Now
+                };
+                context.log_19118076.Add(log_user);
+
+                dealerRequest.Status = "Одобрена";
+
+                var log_requests = new log_19118076
+                {
+                    Table = "DealerRequests",
+                    Action = "Update",
+                    ActionDate = DateTime.Now
+                };
+                context.log_19118076.Add(log_requests);
 
                 await context.SaveChangesAsync();
 
@@ -67,7 +86,16 @@ namespace CarRental.Services.DealerService
 
             try
             {
-                context.DealerRequests.Remove(dealerRequest);
+                var log_requests = new log_19118076
+                {
+                    Table = "DealerRequests",
+                    Action = "Update",
+                    ActionDate = DateTime.Now
+                };
+                context.log_19118076.Add(log_requests);
+
+                dealerRequest.Status = "Отказана";
+
 
                 context.SaveChanges();
             }

@@ -65,6 +65,21 @@ namespace CarRental.Pages.Tenants
                 return RedirectToPage("./Index");
             }
 
+            var log_requests = new log_19118076
+            {
+                Table = "RentalApproveRequests",
+                Action = "Insert",
+                ActionDate = DateTime.Now
+            };
+            _context.log_19118076.Add(log_requests);
+            var log_photos = new log_19118076
+            {
+                Table = "DrivingLicensePhotos",
+                Action = "Insert",
+                ActionDate = DateTime.Now
+            };
+            _context.log_19118076.Add(log_photos);
+
             _context.RentalApproveRequests.Add(RentalApproveRequest);
             await _context.SaveChangesAsync();
 

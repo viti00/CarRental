@@ -43,7 +43,7 @@
                             @if (User.IsInRole(DealerRoleName))
                             {
                                <li class="nav-item">
-                                   <a class="nav-link text-light" asp-controller="Cars" asp-action="Create" asp-route-type="dealer">Създай обява</a>
+                                   <a class="nav-link text-light" asp-controller="Cars" asp-action="Create">Създай обява</a>
                                </li>
                                <li class="nav-item">
                                    <a class="nav-link text-light" asp-controller="Reservations" asp-action="Index" asp-route-type="dealer">Мои клиенти</a>
@@ -51,6 +51,9 @@
                             }
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-controller="Reservations" asp-action="Index" asp-route-type="tenant">Мои наеми</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-controller="Requests" asp-action="RequestsAll">Мои заявки</a>
                             </li>
                             @if (User.IsInRole(DealerRoleName) == false)
                             {

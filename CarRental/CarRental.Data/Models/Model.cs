@@ -4,6 +4,7 @@ using static CarRental.Data.ModelsConstnants;
 
 namespace CarRental.Data.Models
 {
+    [Table("Models", Schema = "19118076")]
     public class Model
     {
         public int Id { get; set; }
@@ -16,5 +17,7 @@ namespace CarRental.Data.Models
         public int MakeId { get; set; }
 
         public virtual Make Make { get; set; }
+
+        public DateTime LastModified_19118076 { get; set; }
     }
 }

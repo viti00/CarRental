@@ -16,15 +16,15 @@ namespace CarRental.Services.TenantsService
         {
             var rentalRequest = context
                                 .RentalApproveRequests
-                                .Include(x=> x.Photos)
-                                .FirstOrDefault(x=> x.Id == id);
+                                .Include(x => x.Photos)
+                                .FirstOrDefault(x => x.Id == id);
             var user = context.Users.FirstOrDefault(x => x.Id == rentalRequest.UserId);
 
-            if(user == null)
+            if (user == null)
             {
                 return false;
             }
-            if(rentalRequest == null)
+            if (rentalRequest == null)
             {
                 return false;
             }
@@ -36,9 +36,25 @@ namespace CarRental.Services.TenantsService
                 user.PhoneNumber = rentalRequest.PhoneNumber;
                 user.CanRent = true;
                 user.DrivingLicensePhotos.AddRange(rentalRequest.Photos);
+                user.LastModified_19118076 = DateTime.Now;
 
-                context.DrivingLicensePhotos.RemoveRange(rentalRequest.Photos);
-                context.RentalApproveRequests.Remove(rentalRequest);
+                var log_user = new log_19118076
+                {
+                    Table = "Users",
+                    Action = "Update",
+                    ActionDate = DateTime.Now
+                };
+                context.log_19118076.Add(log_user);
+
+                var log_requests = new log_19118076
+                {
+                    Table = "RentalApproveRequests",
+                    Action = "Update",
+                    ActionDate = DateTime.Now
+                };
+                context.log_19118076.Add(log_requests);
+
+                rentalRequest.Status = "Одобрена";
 
                 context.Users.Update(user);
                 context.SaveChanges();
@@ -49,7 +65,7 @@ namespace CarRental.Services.TenantsService
                 return false;
             }
 
-            
+
 
             return true;
         }
@@ -76,6 +92,7 @@ namespace CarRental.Services.TenantsService
                                     Description = file.FileName,
                                     FileExtension = Path.GetExtension(file.FileName),
                                     Size = file.Length,
+                                    LastModified_19118076 = DateTime.Now
                                 };
                                 photos.Add(newphoto);
                             }
@@ -95,15 +112,23 @@ namespace CarRental.Services.TenantsService
                                  .Include(x => x.Photos)
                                  .FirstOrDefault(x => x.Id == id);
 
-            if(rentalRequest == null)
+            if (rentalRequest == null)
             {
                 return false;
             }
 
             try
             {
-                context.DrivingLicensePhotos.RemoveRange(rentalRequest.Photos);
-                context.RentalApproveRequests.Remove(rentalRequest);
+
+                var log_requests = new log_19118076
+                {
+                    Table = "RentalApproveRequests",
+                    Action = "Update",
+                    ActionDate = DateTime.Now
+                };
+                context.log_19118076.Add(log_requests);
+
+                rentalRequest.Status = "Отказана";
 
                 context.SaveChanges();
             }
@@ -111,7 +136,7 @@ namespace CarRental.Services.TenantsService
             {
                 return false;
             }
-            
+
 
             return true;
         }

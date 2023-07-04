@@ -15,5 +15,7 @@ namespace CarRental.Data.Models
         public List<DrivingLicensePhoto>? DrivingLicensePhotos { get; set; }
 
         public bool CanRent { get; set; } = false;
+
+        public DateTime LastModified_19118076 { get; set; }
     }
 }

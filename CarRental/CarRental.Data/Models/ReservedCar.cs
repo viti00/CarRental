@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarRental.Data.Models
 {
+    [Table("ReservedCars", Schema = "19118076")]
     public class ReservedCar
     {
         public string Id { get; set; } = Guid.NewGuid().ToString();
@@ -23,5 +24,9 @@ namespace CarRental.Data.Models
         public ApplicationUser? Tenant { get; set; }
 
         public bool IsActive { get; set; } = true;
+
+        public bool IsPaid { get; set; } = false;
+
+        public DateTime LastModified_19118076 { get; set; }
     }
 }

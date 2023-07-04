@@ -64,7 +64,13 @@ namespace CarRental.Pages.Reservations
 
             ReservedCar.Tenant = user;
 
-
+            var log_res = new log_19118076
+            {
+                Table = "Reservation",
+                Action = "Insert",
+                ActionDate = DateTime.Now
+            };
+            _context.log_19118076.Add(log_res);
             _context.ReservedCars.Add(ReservedCar);
             await _context.SaveChangesAsync();
 

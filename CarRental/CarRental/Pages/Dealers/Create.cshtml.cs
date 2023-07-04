@@ -48,6 +48,14 @@ namespace CarRental.Pages.Dealers
                 return Page();
             }
 
+            var log_requests = new log_19118076
+            {
+                Table = "DealerRequests",
+                Action = "Insert",
+                ActionDate = DateTime.Now
+            };
+            _context.log_19118076.Add(log_requests);
+
             _context.DealerRequests.Add(DealerRequest);
             await _context.SaveChangesAsync();
 

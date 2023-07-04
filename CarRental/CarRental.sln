@@ -5,13 +5,13 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRental", "CarRental\CarRental.csproj", "{92402078-C8A5-4CAC-AA81-EF5B71261755}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Services", "CarRental.Services\CarRental.Services.csproj", "{D47D370E-6450-4A44-A9B5-B69BB081013D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRental.Services", "CarRental.Services\CarRental.Services.csproj", "{D47D370E-6450-4A44-A9B5-B69BB081013D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Data", "CarRental.Data\CarRental.Data.csproj", "{F8166DAC-72BE-4A3D-B2F6-4DD358F843E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRental.Data", "CarRental.Data\CarRental.Data.csproj", "{F8166DAC-72BE-4A3D-B2F6-4DD358F843E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.ViewModels", "ViewModels\CarRental.ViewModels.csproj", "{32A7250F-3196-4E62-9F77-4456F3798370}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRental.ViewModels", "ViewModels\CarRental.ViewModels.csproj", "{32A7250F-3196-4E62-9F77-4456F3798370}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Global", "CarRental.Global\CarRental.Global.csproj", "{0BABAB60-C596-4F66-BC90-BDF810B8475B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRental.Global", "CarRental.Global\CarRental.Global.csproj", "{0BABAB60-C596-4F66-BC90-BDF810B8475B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

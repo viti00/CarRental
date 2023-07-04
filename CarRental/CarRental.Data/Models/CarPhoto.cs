@@ -2,6 +2,7 @@
 
 namespace CarRental.Data.Models
 {
+    [Table("CarPhotos", Schema = "19118076")]
     public class CarPhoto
     {
         public int Id { get; set; }
@@ -18,5 +19,7 @@ namespace CarRental.Data.Models
         public string CarId { get; set; }
 
         public virtual Car Car { get; set; }
+
+        public DateTime LastModified_19118076 { get; set; }
     }
 }

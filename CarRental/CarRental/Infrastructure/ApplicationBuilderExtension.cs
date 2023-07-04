@@ -16,7 +16,8 @@ namespace CarRental.Infrastructure
 
             MigrateDatabase(services);
             SeedAdministrator(services);
-            CreateDealerRole(services);
+            SeedDealerRoleAndDealer(services);
+            SeedTenant(services);
 
             return app;
         }
@@ -25,12 +26,13 @@ namespace CarRental.Infrastructure
         {
             var data = services.GetRequiredService<CarRentalDbContext>();
             DbInitializer.Initialize(data);
-            data.Database.Migrate();
+            
         }
 
-        private static void CreateDealerRole(IServiceProvider services)
+        private static void SeedDealerRoleAndDealer(IServiceProvider services)
         {
             var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+            var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
 
             Task
                 .Run(async () =>
@@ -43,6 +45,23 @@ namespace CarRental.Infrastructure
                     var role = new IdentityRole { Name = DealerRoleName };
 
                     await roleManager.CreateAsync(role);
+
+                    if (userManager.Users.FirstOrDefault(x => x.UserName == "dealer") == null)
+                    {
+                        const string Email = "dealer@dealer.bg";
+                        const string Username = "dealer";
+                        const string Password = "dealer123456";
+
+                        var user = new ApplicationUser
+                        {
+                            Email = Email,
+                            UserName = Username,
+                        };
+
+                        await userManager.CreateAsync(user, Password);
+
+                        await userManager.AddToRoleAsync(user, role.Name);
+                    }
                 })
                 .GetAwaiter()
                 .GetResult();
@@ -83,6 +102,35 @@ namespace CarRental.Infrastructure
                         await userManager.CreateAsync(user, adminPassword);
 
                         await userManager.AddToRoleAsync(user, role.Name);
+                    }
+                })
+                .GetAwaiter()
+                .GetResult();
+        }
+
+        private static void SeedTenant(IServiceProvider services)
+        {
+            var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+
+            Task
+                .Run(async () =>
+                {
+                    
+                    if (userManager.Users.FirstOrDefault(x => x.UserName == "tenant") == null)
+                    {
+                        const string Email = "tenant@tenant.bg";
+                        const string Username = "tenant";
+                        const string Password = "tenant123456";
+
+                        var user = new ApplicationUser
+                        {
+                            Email = Email,
+                            UserName = Username,
+                            CanRent = true
+                        };
+
+                        await userManager.CreateAsync(user, Password);
+
                     }
                 })
                 .GetAwaiter()

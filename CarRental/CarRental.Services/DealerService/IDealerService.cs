@@ -1,4 +1,6 @@
-﻿namespace CarRental.Services.DealerService
+﻿using CarRental.Data.Models;
+
+namespace CarRental.Services.DealerService
 {
     public interface IDealerService
     {

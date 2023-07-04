@@ -315,6 +315,29 @@ namespace CarRental.Services.CarService
 
             try
             {
+                var log_car = new log_19118076
+                {
+                    Table = "Cars",
+                    Action = "Delete",
+                    ActionDate = DateTime.Now
+                };
+                context.log_19118076.Add(log_car);
+
+                var log_res = new log_19118076
+                {
+                    Table = "ReservedCars",
+                    Action = "Delete",
+                    ActionDate = DateTime.Now
+                };
+                context.log_19118076.Add(log_res);
+                var log_photos = new log_19118076
+                {
+                    Table = "Photos",
+                    Action = "Delete",
+                    ActionDate = DateTime.Now
+                };
+                context.log_19118076.Add(log_photos);
+                context.RemoveRange(context.Photos.Where(x=> x.CarId == car.Id).ToList());
                 context.RemoveRange(context.ReservedCars.Where(x => x.CarId == car.Id).ToList());
                 context.Cars.Remove(car);
                 context.SaveChanges();
@@ -410,6 +433,7 @@ namespace CarRental.Services.CarService
                                     Description = file.FileName,
                                     FileExtension = Path.GetExtension(file.FileName),
                                     Size = file.Length,
+                                    LastModified_19118076 = DateTime.Now
                                 };
                                 photos.Add(newphoto);
                             }
@@ -428,16 +452,36 @@ namespace CarRental.Services.CarService
         public void DeletePhotoById(int photoId)
         {
             var photo = context.Photos.FirstOrDefault(x => x.Id == photoId);
-            context.Photos.Remove(photo);
-            context.SaveChanges();
+            if (photo != null)
+            {
+                var log_photo = new log_19118076
+                {
+                    Table = "Photos",
+                    Action = "Delete",
+                    ActionDate = DateTime.Now
+                };
+                context.log_19118076.Add(log_photo);
+                context.Photos.Remove(photo);
+                context.SaveChanges();
+            }
+            
         }
 
         public void DeleteAllPhotos(string carId)
         {
             var photos = context.Photos.Where(x => x.CarId == carId).ToList();
-
-            context.Photos.RemoveRange(photos);
-            context.SaveChanges();
+            if (photos.Count > 0)
+            {
+                var log_photos = new log_19118076
+                {
+                    Table = "Photos",
+                    Action = "Delete",
+                    ActionDate = DateTime.Now
+                };
+                context.log_19118076.Add(log_photos);
+                context.Photos.RemoveRange(photos);
+                context.SaveChanges();
+            }
         }
 
         public List<CarPhoto> GetAllPhotosForCar(string carId)

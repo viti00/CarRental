@@ -2,6 +2,7 @@
 
 namespace CarRental.Data.Models
 {
+    [Table("DrivingLicensePhotos", Schema = "19118076")]
     public class DrivingLicensePhoto
     {
         public int Id { get; set; }
@@ -18,5 +19,7 @@ namespace CarRental.Data.Models
         public string FileExtension { get; set; }
 
         public double Size { get; set; }
+
+        public DateTime LastModified_19118076 { get; set; }
     }
 }

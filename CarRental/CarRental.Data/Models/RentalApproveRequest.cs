@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarRental.Data.Models
 {
+    [Table("RentalApproveRequests", Schema = "19118076")]
     public class RentalApproveRequest
     {
         public int Id { get; set; }
@@ -34,5 +35,9 @@ namespace CarRental.Data.Models
         [FromForm]
         [NotMapped]
         public IFormFileCollection? Files { get; set; }
+
+        public DateTime LastModified_19118076 { get; set; }
+
+        public string Status { get; set; } = "Обработва се";
     }
 }
